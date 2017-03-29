@@ -1,6 +1,9 @@
 +++
+date = "2017-03-24"
 title = "Translating a MadCap Flare project without Lingo"
-description = ""
+description = "Tutorial for creating a translation package from a MadCap Flare project with the open source tool Rainbow"
+draft = "false"
+highlight = "true"
 tags = [
     "madcap",
     "flare",
@@ -8,15 +11,13 @@ tags = [
     "rainbow",
     "okapi"
 ]
-date = "2017-03-24"
 categories = [
     "l10n",
     "tutorials"
 ]
-highlight = "true"
 +++
 
-I don't really like MadCap Lingo. Compared to other modern, more mature CAT tools, I have found it buggy and primitive, not to mention expensive for what it does. So when I needed to get my MadCap Flare project translated into 4 different languages, I set out to find a way of doing it that didn't require Lingo. I am sharing my findings for the benefit of those looking to achieve something similar.
+I don't really like MadCap Lingo. Compared to other modern, more mature CAT tools, it's I have found it buggy and primitive, not to mention expensive for what it does. So when I needed to get my MadCap Flare project translated into 4 different languages, I came up with an alternative solution using an open source tool called Rainbow. I am sharing my approach here for the benefit of others.
 
 **DISCLAIMER**: The below has worked for me – so far. My translations are still ongoing. It's entirely possible that 1) my methods don't work for your project and 2) I run into problems with my own project later on. Nevertheless, I am hoping this will get you at least part of the way there. You're always welcome to [ask me questions](mailto:me@wouter.tech) if you think I can help.
 
@@ -26,7 +27,9 @@ I don't really like MadCap Lingo. Compared to other modern, more mature CAT tool
 * a MadCap Flare project;
 * Rainbow, which is bundled with the [Okapi Framework apps](https://bintray.com/okapi/Distribution/Okapi_Applications).
 
-In addition, it helps if you have:
+    **NOTE:** Some people have reported problems running the 64-bit version of Rainbow. If that's the case for you, just install the 32-bit version. It works exactly the same.  
+
+In addition to the above, it helps if you have:
 
 * a basic understanding of translation processes and related file types, such as TMX and XLIFF;
 * [OmegaT](http://www.omegat.org/en/omegat.html), to test the translation package you're creating.
@@ -50,7 +53,7 @@ Translating the project:
 Translating the output:
 
 - [+] Project is already built, so the risk of breaking stuff by converting/translating files is much smaller.
--  [+] Can use condition tags to exclude files from translation.
+- [+] Can use condition tags to exclude files from translation.
 - [-] Translation package will contain lots of repetition (e.g. snippets, the same TOC on every page), which is annoying for translator and may affect translation cost.
 - [-] Can't extract image annotations for translation.
 
@@ -86,6 +89,7 @@ Fire up Rainbow and do these things:
 2. On the same tab, set the encoding for source and target to **Unicode (UTF-8)**.
 
     **NOTE**: This was the correct encoding for my project files – I assume it's the same for all Flare projects. You can check by opening one of your topics in a program like [Notepad++](https://notepad-plus-plus.org/).
+    
 3. On the **Other Settings** tab, de-select **Use an extension**. This is important because you want the final, translated files to retain their original names. Under the default settings, `topic.htm` becomes `topic.out.htm`.
 4. Save your configuration (**File > Save**).
 
@@ -122,20 +126,41 @@ Files that need special treatment (will cover this in a future update – ignore
 
 * `Content\Stylesheets`
 
-### Creating custom filters
+### Applying filters
 
 Rainbow includes a large set of filter configurations, which you can see by selecting **Tools > Filter Configurations**. Rainbow uses these filters to  determine which parts of a given file are translatable, i.e. which parts it should extract and put in a translation package.
 
-A Flare project consists of HTML and XML files, and Rainbow will automatically apply the **okf_html** and **okf_xml** filters when you add such files to the input list (see the **Filter Configuration** column). For glossaries (`.flglo`) and variable sets (`.flvar`), the default **okf_xml** filter works fine, but the other file types require a little more work: we'll need to create custom filters for them.
+A Flare project consists of HTML and XML files. Rainbow has default filters for these file types, but they will only work for a few of your files. You'll have to create custom filters for the rest.
+
+#### Apply default filter to glossaries (`.flglo`) and variable sets (`.flvar`)
+
+The default **okf_xml** filter will work for glossaries and variable sets. To apply this filter:
+
+1. Using your mouse and the **Ctrl** and **Shift** keys, select all files ending in `.flglo` and `.flvar`.
+2. Right-click on any of the selected files and select **Edit Document Properties**.
+3. Under **Filter configuration**, select **XML Filter**.
+
+    ![Select the XML filter](/img/rainbow-select-xml-filter.png)
+
+4. Click **OK**.
+
+In the **Filter Configuration** column, it should say **okf_xml**.
 
 #### Create filter for topics (`.htm`), snippets (`.flsnp`) and master pages (`.flmsp`)
 
-1. Using your mouse and the **Ctrl** and **Shift** keys, select all files ending in `.htm`, `.flsnp` or `.flmsp`.
+1. Using the same methods as above, select all files ending in `.htm`, `.flsnp` and `.flmsp`.
 2. Right-click on any of the selected files and select **Edit Document Properties**.
-The **okf_html** filter will be selected.
-3. Click **Create** to create a custom filter configuration based on **okf_html**.
+3. Under **Filter configuration** select **HTML/XHTML Filter**.
+4. Click **Create** to create a custom filter configuration based on **okf_html**.
+
+    ![Create a custom filter](/img/rainbow-create-custom-filter.png)
+
 4. Enter the name `flare-topic` and click **OK**. The full name will appear as `okf_html@flare-topic`.
-The filter's parameters appear. This particular filter uses the [YAML](https://en.wikipedia.org/wiki/YAML) format.
+
+    The filter's parameters now appear. This particular filter uses the [YAML](https://en.wikipedia.org/wiki/YAML) format.
+
+    ![HTML filter parameters](/img/rainbow-html-filter-parameters.png)
+
 5. Change `preserve_whitespace: false` to `true`. This ensures that the whitespace around e.g. cross-references is retained during conversion.
 6. Scroll down a little until you see `elements:` and insert the following lines immediately after it:
 
@@ -152,8 +177,12 @@ The filter's parameters appear. This particular filter uses the [YAML](https://e
 
 #### Create filter for TOCs (`.fltoc`)
 
-1. Using the same methods as above, select all `.fltoc` files and create a new filter called `okf_xml@flare-TOC`.
-Unsurprisingly, the parameters of this filter are written in XML.
+1. Select all `.fltoc` files and create a new filter called `okf_xml@flare-TOC`.
+
+    Unsurprisingly, the parameters of this filter are written in XML.
+
+    ![XML filter parameters](/img/rainbow-xml-filter-parameters.png)
+
 2. Replace the default parameters with the following:
 
     ```xml
@@ -164,7 +193,7 @@ Unsurprisingly, the parameters of this filter are written in XML.
     </its:rules>
     ```
 
-This tells Rainbow that the values of all `Title` attributes contain translatable text. (By default, all attributes are considered non-translatable.)
+This tells Rainbow that the values of all `Title` attributes contain translatable text. (By default, attributes in XML files are considered non-translatable.)
 
 #### Create filter for image annotations (`.props`)
 
@@ -187,29 +216,38 @@ It's a good idea to back up your custom filters for future translation projects.
 
 ### Create the translation package
 
-Rainbow lets you create conversion 'pipelines' that allow you to put in a bunch of files on one end (i.e. source texts, terminology files, translation memories) and get a neat little translation package at the other, that you can then send off to a translator/LSP. You can build these pipelines from scratch by using dozens of configurable steps, but Rainbow also comes with a couple of pre-defined pipelines, which you'll be using.
+A fundamental feature of Rainbow is that it lets you build conversion 'pipelines', which enable you to put in a bunch of files on one end (i.e. source texts, terminology files, translation memories) and produce a neat little translation package at the other, which you can then send off to a translator/LSP.
+
+You can build your pipelines from scratch by choosing from dozens of configurable steps, but for the present purposes you can use one of Rainbow's pre-defined pipelines.
 
 1. Select **Utilities > Translation Kit Creation**.
 This fires up the pre-defined pipeline for creating translation packages.
-2. In the list of steps on the left, select the bottom one (**Rainbow TRanslation Kit Creation**).
+
+    ![Translation Kit Creation pipeline](/img/rainbow-translation-kit-creation.png)
+
+2. In the list of steps on the left, select the bottom one (**Rainbow Translation Kit Creation**).
 3. On the **Package Format** tab, select **Generic XLIFF**.
-**NOTE:** Any CAT tool worth its salt (e.g. Trados, MemoQ, OmegaT) can handle [XLIFF](https://en.wikipedia.org/wiki/XLIFF), so that's what I use. But you can theoretically use any of the other formats as well – you just won't be able to use my instructions from hereon.
+
+    **NOTE:** Any CAT tool worth its salt (e.g. Trados, MemoQ, OmegaT) can handle [XLIFF](https://en.wikipedia.org/wiki/XLIFF), so that's the format I use. But you can theoretically use any of the other formats as well – you just won't be able to use my instructions from hereon.
+
 4. Click **Options** and make sure these options are selected (they might be by default, I'm not sure):
     * **Use \<g>\</g> and \<x/> notation**
     * **Copy source text in target if no target is available**
 5. On the **Output Location** tab, choose an output folder and give the package a name. I recommend mentioning the source and target language in both.
 6. Optionally, add any translation memories, terminology files and other supporting documents on the **Support Material** tab.
 7. When you're ready, click **Execute**.
-   Rainbow now goes through each file, extracts translatable text based on your filter configurations, splits that text into segments (i.e. sentences) and stores it all in XLIFF (`.xlf`) files. There will be one XLIFF file for each source file.
-   Note that the log may contain some alarming lines like `Trying to end a TextUnit that does not exist`. Don't worry: as long as the error and warning counts at the bottom are both at 0, everything went fine.
 
-If everything goes well, your output folder will contain these things:
+    Rainbow now goes through each file, extracts translatable text based on your filter configurations, splits that text into segments (i.e. sentences) and stores it all in XLIFF (`.xlf`) files. There will be one XLIFF file for each source file.
+
+    Don't worry if the log contains mildly alarming messages like `Trying to end a TextUnit that does not exist`. As long as the error and warning counts at the bottom are both at 0, everything is fine.
+
+If things went as they should, your output folder will contain these things:
 
 * A folder called `original`, which contains the original source files (for the translator's reference).
 * A folder called `work`, which contains all the translatable `.xlf` files.
 * A file called `manifest.rkm`, which contains information about where each individual translatable text came from. Rainbow uses this to determine where to insert the translations as it converts the translated files back to their original formats.
 
-If you want, you can get an idea of how your files will look like to the translator by opening them in [OmegaT](http://www.omegat.org/en/omegat.html).
+If you want, you can open your files in [OmegaT](http://www.omegat.org/en/omegat.html) to see how they look for the translator.
 
 ## Translating the project files
 
@@ -223,14 +261,16 @@ You can email the files in a zip file, host them on Dropbox, or transfer them an
 * the original folder structure of the `work` folder is kept intact;
 * the `manifest.rkm` file is not tampered with.
 
-Regarding that last point: I recommend not even sending it. It's vital for you, but the translator has no use for it.
+In fact, I recommend not even sending the manifest file. The translator has no use for it.
 
 ### Processing the package after translation
 
 If everything went as it should, the translator should send you back the same basic set of files, with the same folder structure, except all the `.xlf` files have been modified. You can open them with a text editor and see that each source segment now has a matching translation. You're now going to run these files through Rainbow again to convert them back to their original format.
 
 1. In Rainbow, create a new configuration file (**File > New**).
-**NOTE:** If you're like me, you'd expect to load up your previous configuration and continue where you left off. But that's not how Rainbow works – you really do need a fresh config.
+
+    **NOTE:** If you're like me, you'd expect to load up your previous configuration and continue where you left off. But that's not how Rainbow works – you really do need a fresh config.
+
 2. Drag the `manifest.rkm` file into the file list.
 3. Select **Utilities > Translation Kit Post-Processing**. This loads up another pre-defined pipeline that more or less does the reverse of the one you used previously.
 4. Click **Execute**. You'll see an overview of all the files that are going to be post-processed.

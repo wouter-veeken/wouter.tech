@@ -1,18 +1,19 @@
 +++
+date = "2017-03-29"
 title = "Creating a responsive layout in Flare top navigation output"
 description = ""
+draft = "true"
+highlight = "true"
 tags = [
     "madcap",
     "flare",    
     "css",
     "design"
 ]
-date = "2017-03-24"
 categories = [
     "tutorials",
     "design"
 ]
-highlight = "true"
 +++
 
 Outline:

@@ -85,7 +85,7 @@ ga('send', 'pageview');
             <div class="blogpost">
               
 
-<p>I don&rsquo;t really like MadCap Lingo. Compared to other modern, more mature CAT tools, I have found it buggy and primitive, not to mention expensive for what it does. So when I needed to get my MadCap Flare project translated into 4 different languages, I set out to find a way of doing it that didn&rsquo;t require Lingo. I am sharing my findings for the benefit of those looking to achieve something similar.</p>
+<p>I don&rsquo;t really like MadCap Lingo. Compared to other modern, more mature CAT tools, it&rsquo;s I have found it buggy and primitive, not to mention expensive for what it does. So when I needed to get my MadCap Flare project translated into 4 different languages, I came up with an alternative solution using an open source tool called Rainbow. I am sharing my approach here for the benefit of others.</p>
 
 <p><strong>DISCLAIMER</strong>: The below has worked for me – so far. My translations are still ongoing. It&rsquo;s entirely possible that 1) my methods don&rsquo;t work for your project and 2) I run into problems with my own project later on. Nevertheless, I am hoping this will get you at least part of the way there. You&rsquo;re always welcome to <a href="mailto:me@wouter.tech">ask me questions</a> if you think I can help.</p>
 
@@ -94,10 +94,13 @@ ga('send', 'pageview');
 <ul>
 <li>Some knowledge of HTML, XML and similar markup languages;</li>
 <li>a MadCap Flare project;</li>
-<li>Rainbow, which is bundled with the <a href="https://bintray.com/okapi/Distribution/Okapi_Applications">Okapi Framework apps</a>.</li>
+
+<li><p>Rainbow, which is bundled with the <a href="https://bintray.com/okapi/Distribution/Okapi_Applications">Okapi Framework apps</a>.</p>
+
+<p><strong>NOTE:</strong> Some people have reported problems running the 64-bit version of Rainbow. If that&rsquo;s the case for you, just install the 32-bit version. It works exactly the same.</p></li>
 </ul>
 
-<p>In addition, it helps if you have:</p>
+<p>In addition to the above, it helps if you have:</p>
 
 <ul>
 <li>a basic understanding of translation processes and related file types, such as TMX and XLIFF;</li>
@@ -218,22 +221,47 @@ ga('send', 'pageview');
 <li><code>Content\Stylesheets</code></li>
 </ul>
 
-<h3 id="creating-custom-filters">Creating custom filters</h3>
+<h3 id="applying-filters">Applying filters</h3>
 
 <p>Rainbow includes a large set of filter configurations, which you can see by selecting <strong>Tools &gt; Filter Configurations</strong>. Rainbow uses these filters to  determine which parts of a given file are translatable, i.e. which parts it should extract and put in a translation package.</p>
 
-<p>A Flare project consists of HTML and XML files, and Rainbow will automatically apply the <strong>okf_html</strong> and <strong>okf_xml</strong> filters when you add such files to the input list (see the <strong>Filter Configuration</strong> column). For glossaries (<code>.flglo</code>) and variable sets (<code>.flvar</code>), the default <strong>okf_xml</strong> filter works fine, but the other file types require a little more work: we&rsquo;ll need to create custom filters for them.</p>
+<p>A Flare project consists of HTML and XML files. Rainbow has default filters for these file types, but they will only work for a few of your files. You&rsquo;ll have to create custom filters for the rest.</p>
+
+<h4 id="apply-default-filter-to-glossaries-flglo-and-variable-sets-flvar">Apply default filter to glossaries (<code>.flglo</code>) and variable sets (<code>.flvar</code>)</h4>
+
+<p>The default <strong>okf_xml</strong> filter will work for glossaries and variable sets. To apply this filter:</p>
+
+<ol>
+<li>Using your mouse and the <strong>Ctrl</strong> and <strong>Shift</strong> keys, select all files ending in <code>.flglo</code> and <code>.flvar</code>.</li>
+<li>Right-click on any of the selected files and select <strong>Edit Document Properties</strong>.</li>
+
+<li><p>Under <strong>Filter configuration</strong>, select <strong>XML Filter</strong>.</p>
+
+<p><img src="/img/rainbow-select-xml-filter.png" alt="Select the XML filter" /></p></li>
+
+<li><p>Click <strong>OK</strong>.</p></li>
+</ol>
+
+<p>In the <strong>Filter Configuration</strong> column, it should say <strong>okf_xml</strong>.</p>
 
 <h4 id="create-filter-for-topics-htm-snippets-flsnp-and-master-pages-flmsp">Create filter for topics (<code>.htm</code>), snippets (<code>.flsnp</code>) and master pages (<code>.flmsp</code>)</h4>
 
 <ol>
-<li>Using your mouse and the <strong>Ctrl</strong> and <strong>Shift</strong> keys, select all files ending in <code>.htm</code>, <code>.flsnp</code> or <code>.flmsp</code>.</li>
-<li>Right-click on any of the selected files and select <strong>Edit Document Properties</strong>.
-The <strong>okf_html</strong> filter will be selected.</li>
-<li>Click <strong>Create</strong> to create a custom filter configuration based on <strong>okf_html</strong>.</li>
-<li>Enter the name <code>flare-topic</code> and click <strong>OK</strong>. The full name will appear as <code>okf_html@flare-topic</code>.
-The filter&rsquo;s parameters appear. This particular filter uses the <a href="https://en.wikipedia.org/wiki/YAML">YAML</a> format.</li>
-<li>Change <code>preserve_whitespace: false</code> to <code>true</code>. This ensures that the whitespace around e.g. cross-references is retained during conversion.</li>
+<li>Using the same methods as above, select all files ending in <code>.htm</code>, <code>.flsnp</code> and <code>.flmsp</code>.</li>
+<li>Right-click on any of the selected files and select <strong>Edit Document Properties</strong>.</li>
+<li>Under <strong>Filter configuration</strong> select <strong>HTML/XHTML Filter</strong>.</li>
+
+<li><p>Click <strong>Create</strong> to create a custom filter configuration based on <strong>okf_html</strong>.</p>
+
+<p><img src="/img/rainbow-create-custom-filter.png" alt="Create a custom filter" /></p></li>
+
+<li><p>Enter the name <code>flare-topic</code> and click <strong>OK</strong>. The full name will appear as <code>okf_html@flare-topic</code>.</p>
+
+<p>The filter&rsquo;s parameters now appear. This particular filter uses the <a href="https://en.wikipedia.org/wiki/YAML">YAML</a> format.</p>
+
+<p><img src="/img/rainbow-html-filter-parameters.png" alt="HTML filter parameters" /></p></li>
+
+<li><p>Change <code>preserve_whitespace: false</code> to <code>true</code>. This ensures that the whitespace around e.g. cross-references is retained during conversion.</p></li>
 
 <li><p>Scroll down a little until you see <code>elements:</code> and insert the following lines immediately after it:</p>
 
@@ -252,8 +280,11 @@ The filter&rsquo;s parameters appear. This particular filter uses the <a href="h
 <h4 id="create-filter-for-tocs-fltoc">Create filter for TOCs (<code>.fltoc</code>)</h4>
 
 <ol>
-<li>Using the same methods as above, select all <code>.fltoc</code> files and create a new filter called <code>okf_xml@flare-TOC</code>.
-Unsurprisingly, the parameters of this filter are written in XML.</li>
+<li><p>Select all <code>.fltoc</code> files and create a new filter called <code>okf_xml@flare-TOC</code>.</p>
+
+<p>Unsurprisingly, the parameters of this filter are written in XML.</p>
+
+<p><img src="/img/rainbow-xml-filter-parameters.png" alt="XML filter parameters" /></p></li>
 
 <li><p>Replace the default parameters with the following:</p>
 
@@ -265,7 +296,7 @@ Unsurprisingly, the parameters of this filter are written in XML.</li>
 </code></pre></li>
 </ol>
 
-<p>This tells Rainbow that the values of all <code>Title</code> attributes contain translatable text. (By default, all attributes are considered non-translatable.)</p>
+<p>This tells Rainbow that the values of all <code>Title</code> attributes contain translatable text. (By default, attributes in XML files are considered non-translatable.)</p>
 
 <h4 id="create-filter-for-image-annotations-props">Create filter for image annotations (<code>.props</code>)</h4>
 
@@ -289,28 +320,41 @@ Unsurprisingly, the parameters of this filter are written in XML.</li>
 
 <h3 id="create-the-translation-package">Create the translation package</h3>
 
-<p>Rainbow lets you create conversion &lsquo;pipelines&rsquo; that allow you to put in a bunch of files on one end (i.e. source texts, terminology files, translation memories) and get a neat little translation package at the other, that you can then send off to a translator/LSP. You can build these pipelines from scratch by using dozens of configurable steps, but Rainbow also comes with a couple of pre-defined pipelines, which you&rsquo;ll be using.</p>
+<p>A fundamental feature of Rainbow is that it lets you build conversion &lsquo;pipelines&rsquo;, which enable you to put in a bunch of files on one end (i.e. source texts, terminology files, translation memories) and produce a neat little translation package at the other, which you can then send off to a translator/LSP.</p>
+
+<p>You can build your pipelines from scratch by choosing from dozens of configurable steps, but for the present purposes you can use one of Rainbow&rsquo;s pre-defined pipelines.</p>
 
 <ol>
-<li>Select <strong>Utilities &gt; Translation Kit Creation</strong>.
-This fires up the pre-defined pipeline for creating translation packages.</li>
-<li>In the list of steps on the left, select the bottom one (<strong>Rainbow TRanslation Kit Creation</strong>).</li>
-<li>On the <strong>Package Format</strong> tab, select <strong>Generic XLIFF</strong>.
-<strong>NOTE:</strong> Any CAT tool worth its salt (e.g. Trados, MemoQ, OmegaT) can handle <a href="https://en.wikipedia.org/wiki/XLIFF">XLIFF</a>, so that&rsquo;s what I use. But you can theoretically use any of the other formats as well – you just won&rsquo;t be able to use my instructions from hereon.</li>
-<li>Click <strong>Options</strong> and make sure these options are selected (they might be by default, I&rsquo;m not sure):
+<li><p>Select <strong>Utilities &gt; Translation Kit Creation</strong>.
+This fires up the pre-defined pipeline for creating translation packages.</p>
+
+<p><img src="/img/rainbow-translation-kit-creation.png" alt="Translation Kit Creation pipeline" /></p></li>
+
+<li><p>In the list of steps on the left, select the bottom one (<strong>Rainbow Translation Kit Creation</strong>).</p></li>
+
+<li><p>On the <strong>Package Format</strong> tab, select <strong>Generic XLIFF</strong>.</p>
+
+<p><strong>NOTE:</strong> Any CAT tool worth its salt (e.g. Trados, MemoQ, OmegaT) can handle <a href="https://en.wikipedia.org/wiki/XLIFF">XLIFF</a>, so that&rsquo;s the format I use. But you can theoretically use any of the other formats as well – you just won&rsquo;t be able to use my instructions from hereon.</p></li>
+
+<li><p>Click <strong>Options</strong> and make sure these options are selected (they might be by default, I&rsquo;m not sure):</p>
 
 <ul>
 <li><strong>Use &lt;g&gt;&lt;/g&gt; and &lt;x/&gt; notation</strong></li>
 <li><strong>Copy source text in target if no target is available</strong></li>
 </ul></li>
-<li>On the <strong>Output Location</strong> tab, choose an output folder and give the package a name. I recommend mentioning the source and target language in both.</li>
-<li>Optionally, add any translation memories, terminology files and other supporting documents on the <strong>Support Material</strong> tab.</li>
-<li>When you&rsquo;re ready, click <strong>Execute</strong>.
-Rainbow now goes through each file, extracts translatable text based on your filter configurations, splits that text into segments (i.e. sentences) and stores it all in XLIFF (<code>.xlf</code>) files. There will be one XLIFF file for each source file.
-Note that the log may contain some alarming lines like <code>Trying to end a TextUnit that does not exist</code>. Don&rsquo;t worry: as long as the error and warning counts at the bottom are both at 0, everything went fine.</li>
+
+<li><p>On the <strong>Output Location</strong> tab, choose an output folder and give the package a name. I recommend mentioning the source and target language in both.</p></li>
+
+<li><p>Optionally, add any translation memories, terminology files and other supporting documents on the <strong>Support Material</strong> tab.</p></li>
+
+<li><p>When you&rsquo;re ready, click <strong>Execute</strong>.</p>
+
+<p>Rainbow now goes through each file, extracts translatable text based on your filter configurations, splits that text into segments (i.e. sentences) and stores it all in XLIFF (<code>.xlf</code>) files. There will be one XLIFF file for each source file.</p>
+
+<p>Don&rsquo;t worry if the log contains mildly alarming messages like <code>Trying to end a TextUnit that does not exist</code>. As long as the error and warning counts at the bottom are both at 0, everything is fine.</p></li>
 </ol>
 
-<p>If everything goes well, your output folder will contain these things:</p>
+<p>If things went as they should, your output folder will contain these things:</p>
 
 <ul>
 <li>A folder called <code>original</code>, which contains the original source files (for the translator&rsquo;s reference).</li>
@@ -318,7 +362,7 @@ Note that the log may contain some alarming lines like <code>Trying to end a Tex
 <li>A file called <code>manifest.rkm</code>, which contains information about where each individual translatable text came from. Rainbow uses this to determine where to insert the translations as it converts the translated files back to their original formats.</li>
 </ul>
 
-<p>If you want, you can get an idea of how your files will look like to the translator by opening them in <a href="http://www.omegat.org/en/omegat.html">OmegaT</a>.</p>
+<p>If you want, you can open your files in <a href="http://www.omegat.org/en/omegat.html">OmegaT</a> to see how they look for the translator.</p>
 
 <h2 id="translating-the-project-files">Translating the project files</h2>
 
@@ -334,19 +378,24 @@ Note that the log may contain some alarming lines like <code>Trying to end a Tex
 <li>the <code>manifest.rkm</code> file is not tampered with.</li>
 </ul>
 
-<p>Regarding that last point: I recommend not even sending it. It&rsquo;s vital for you, but the translator has no use for it.</p>
+<p>In fact, I recommend not even sending the manifest file. The translator has no use for it.</p>
 
 <h3 id="processing-the-package-after-translation">Processing the package after translation</h3>
 
 <p>If everything went as it should, the translator should send you back the same basic set of files, with the same folder structure, except all the <code>.xlf</code> files have been modified. You can open them with a text editor and see that each source segment now has a matching translation. You&rsquo;re now going to run these files through Rainbow again to convert them back to their original format.</p>
 
 <ol>
-<li>In Rainbow, create a new configuration file (<strong>File &gt; New</strong>).
-<strong>NOTE:</strong> If you&rsquo;re like me, you&rsquo;d expect to load up your previous configuration and continue where you left off. But that&rsquo;s not how Rainbow works – you really do need a fresh config.</li>
-<li>Drag the <code>manifest.rkm</code> file into the file list.</li>
-<li>Select <strong>Utilities &gt; Translation Kit Post-Processing</strong>. This loads up another pre-defined pipeline that more or less does the reverse of the one you used previously.</li>
-<li>Click <strong>Execute</strong>. You&rsquo;ll see an overview of all the files that are going to be post-processed.</li>
-<li>Click <strong>Continue</strong>.</li>
+<li><p>In Rainbow, create a new configuration file (<strong>File &gt; New</strong>).</p>
+
+<p><strong>NOTE:</strong> If you&rsquo;re like me, you&rsquo;d expect to load up your previous configuration and continue where you left off. But that&rsquo;s not how Rainbow works – you really do need a fresh config.</p></li>
+
+<li><p>Drag the <code>manifest.rkm</code> file into the file list.</p></li>
+
+<li><p>Select <strong>Utilities &gt; Translation Kit Post-Processing</strong>. This loads up another pre-defined pipeline that more or less does the reverse of the one you used previously.</p></li>
+
+<li><p>Click <strong>Execute</strong>. You&rsquo;ll see an overview of all the files that are going to be post-processed.</p></li>
+
+<li><p>Click <strong>Continue</strong>.</p></li>
 </ol>
 
 <p>The converted, translated files will be in a folder called <code>done</code>, on the same level als the <code>original</code> and <code>work</code> folders.</p>
