@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="author" content="map[]" />
+    <meta name="description" content="Technical writer from Amsterdam, the Netherlands">
+    <link rel="shortcut icon" type="image/x-icon" href="http://wouter.tech/img/favicon.ico">
+    <title>Translating a MadCap Flare project without Lingo</title>
+    <meta name="generator" content="Hugo 0.17" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="http://wouter.tech/css/main.css" /><link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.7.0/styles/tomorrow.min.css">
+    
+    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" />
+    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:200,400,200bold,400old" />
+    
+    <!--[if lt IE 9]>
+			<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+			<script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+		<![endif]-->
+
+    
+<script>
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-96197135-1', 'auto');
+ga('send', 'pageview');
+</script>
+
+  </head>
+
+  <body>
+    <div id="wrap">
+
+      
+      <nav class="navbar navbar-default">
+  <div class="container">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="http://wouter.tech/"><i class="fa fa-home"></i></a>
+    </div>
+    <div id="navbar">
+      <ul class="nav navbar-nav navbar-right">
+      
+        
+        <li><a href="/blog/">BLOG</a></li>
+        
+        <li><a href="/projects/">PROJECTS</a></li>
+        
+      
+      </ul>
+    </div>
+  </div>
+</nav>
+
+      
+      <div class="container">
+        <div class="blog-post">
+          <h3>
+            <strong><a href="http://wouter.tech/blog/translating-flare-without-lingo/">Translating a MadCap Flare project without Lingo</a></strong>
+          </h3>
+        </div>
+        <div class="blog-title">
+          <h4>
+          March 24, 2017
+            &nbsp;&nbsp;
+            
+            <span class="label label-success">madcap</span>
+            
+            <span class="label label-success">flare</span>
+            
+            <span class="label label-success">lingo</span>
+            
+            <span class="label label-success">rainbow</span>
+            
+            <span class="label label-success">okapi</span>
+            
+          </h4>
+        </div>
+        <div class="panel panel-default">
+          <div class="panel-body">
+            <div class="blogpost">
+              
+
+<p>I don&rsquo;t really like MadCap Lingo. Compared to other modern, more mature CAT tools, I have found it buggy and primitive, not to mention expensive for what it does. So when I needed to get my MadCap Flare project translated into 4 different languages, I set out to find a way of doing it that didn&rsquo;t require Lingo. I am sharing my findings for the benefit of those looking to achieve something similar.</p>
+
+<p><strong>DISCLAIMER</strong>: The below has worked for me – so far. My translations are still ongoing. It&rsquo;s entirely possible that 1) my methods don&rsquo;t work for your project and 2) I run into problems with my own project later on. Nevertheless, I am hoping this will get you at least part of the way there. You&rsquo;re always welcome to <a href="mailto:me@wouter.tech">ask me questions</a> if you think I can help.</p>
+
+<h2 id="what-you-ll-need">What you&rsquo;ll need</h2>
+
+<ul>
+<li>Some knowledge of HTML, XML and similar markup languages;</li>
+<li>a MadCap Flare project;</li>
+<li>Rainbow, which is bundled with the <a href="https://bintray.com/okapi/Distribution/Okapi_Applications">Okapi Framework apps</a>.</li>
+</ul>
+
+<p>In addition, it helps if you have:</p>
+
+<ul>
+<li>a basic understanding of translation processes and related file types, such as TMX and XLIFF;</li>
+<li><a href="http://www.omegat.org/en/omegat.html">OmegaT</a>, to test the translation package you&rsquo;re creating.</li>
+</ul>
+
+<h2 id="terms-and-acronyms-used-in-this-article">Terms and acronyms used in this article</h2>
+
+<ul>
+<li><strong>LSP:</strong> Language service provider, e.g. a translation agency.</li>
+<li><strong>CAT tool:</strong> Computer assisted translation tool, e.g. Trados, MemoQ and similar.</li>
+</ul>
+
+<h2 id="translating-the-project-vs-translating-the-output">Translating the project vs. translating the output</h2>
+
+<p>There are essentially two ways you can approach the translation of your Flare project: you can either translate your original project files (pre-build), or you can translate the actual output (post-build). My process uses the first approach, but here are some pros and cons for both options:</p>
+
+<p>Translating the project:</p>
+
+<ul>
+<li>[+] Everything is nicely compartmentalized, i.e. variables, snippets, TOC, topics are in separate files.</li>
+<li>[+] Can extract image annotations for translation (if you&rsquo;re using Capture).</li>
+<li>[-] Can&rsquo;t use condition tags to exclude files you don&rsquo;t want to translate.</li>
+<li>[-] Since you have to build the project after putting the files through multiple conversion and translation steps, there might be some surprises.</li>
+</ul>
+
+<p>Translating the output:</p>
+
+<ul>
+<li>[+] Project is already built, so the risk of breaking stuff by converting/translating files is much smaller.</li>
+<li>[+] Can use condition tags to exclude files from translation.</li>
+<li>[-] Translation package will contain lots of repetition (e.g. snippets, the same TOC on every page), which is annoying for translator and may affect translation cost.</li>
+<li>[-] Can&rsquo;t extract image annotations for translation.</li>
+</ul>
+
+<p>Although there are several reasons why I chose the first approach, that last one cinched it for me. If image annotations are not a factor for you, perhaps it might be easier to just zip the output and send it off to your translator or LSP.</p>
+
+<h2 id="high-level-steps">High-level steps</h2>
+
+<p>Here&rsquo;s what you&rsquo;ll roughly be doing if you follow my instructions:</p>
+
+<ol>
+<li>Export a copy of your source-language project from Flare.</li>
+<li>Add the files you want to translate to Rainbow.</li>
+<li>Create a few custom filter configurations in Rainbow.</li>
+<li>Create a translation package in Rainbow.</li>
+<li>Send everything to be translated.</li>
+<li>Convert the translated files back to their original format in Rainbow.</li>
+<li>Build the translated project in Flare.</li>
+</ol>
+
+<p>This is just to provide an overview. It is not a table of contents.</p>
+
+<h2 id="preparing-your-project-for-translation">Preparing your project for translation</h2>
+
+<p>Open your project in Flare and select <strong>Project &gt; Export Project</strong> to create a copy. I recommend appending the filename with the source and target language codes, e.g. <code>my_flare_project_en-US_fr-FR.flprj</code> if you&rsquo;re translating from (US) English to French.</p>
+
+<h2 id="preparing-your-translation-package-with-rainbow">Preparing your translation package with Rainbow</h2>
+
+<p>Rainbow is sort of a Swiss army knife for translators and translation project managers. It offers file conversion, terminology extraction, quality checks, pre-translation, and about a million other things I haven&rsquo;t even begun to explore myself. Unfortunately, it&rsquo;s also got a steep learning curve. There&rsquo;s a <a href="http://okapiframework.org/wiki/index.php?title=Rainbow">wiki</a> which is fairly comprehensive, but it often lacks detail in important areas, and some parts seem out of date. Thankfully, you&rsquo;ve got this blog to help you!</p>
+
+<h3 id="basic-configuration">Basic configuration</h3>
+
+<p>Fire up Rainbow and do these things:</p>
+
+<ol>
+<li>On the <strong>Languages and Encodings</strong> tab, select the relevant source and target language.</li>
+
+<li><p>On the same tab, set the encoding for source and target to <strong>Unicode (UTF-8)</strong>.</p>
+
+<p><strong>NOTE</strong>: This was the correct encoding for my project files – I assume it&rsquo;s the same for all Flare projects. You can check by opening one of your topics in a program like <a href="https://notepad-plus-plus.org/">Notepad++</a>.</p></li>
+
+<li><p>On the <strong>Other Settings</strong> tab, de-select <strong>Use an extension</strong>. This is important because you want the final, translated files to retain their original names. Under the default settings, <code>topic.htm</code> becomes <code>topic.out.htm</code>.</p></li>
+
+<li><p>Save your configuration (<strong>File &gt; Save</strong>).</p></li>
+</ol>
+
+<h3 id="adding-files-to-your-package">Adding files to your package</h3>
+
+<ol>
+<li>Select the <strong>Input List 1</strong> tab.</li>
+<li>In Windows Explorer, navigate to the root directory of your exported Flare project.</li>
+<li>Drag all the file types you want to translate into the Rainbow window. (See <a href="#WhichFilesToInclude">Which files to include</a> below.)</li>
+<li>Delete from the list any files you don&rsquo;t want translated. You could do this by opening your Flare projects and looking for files with certain publishing conditions or file tags (e.g. &lsquo;draft&rsquo;, &lsquo;internal only&rsquo;).</li>
+</ol>
+
+<h4 id="a-name-whichfilestoinclude-a-which-files-to-include"><a name="WhichFilesToInclude"></a>Which files to include</h4>
+
+<p>From the <code>Project</code> folder:</p>
+
+<ul>
+<li>Glossaries (<code>.flglo</code>)</li>
+<li>TOCs (<code>.fltoc</code>)</li>
+<li>VariableSets (<code>.flvar</code>)</li>
+</ul>
+
+<p>From the <code>Content</code> folder:</p>
+
+<ul>
+<li>MasterPages (<code>.flmsp</code>)</li>
+<li>Image properties (<code>.props</code>)</li>
+<li>PageLayouts (<code>.flpgl</code>)</li>
+<li>Snippets (<code>.flsnp</code>)</li>
+<li>Topics (<code>.htm</code>)</li>
+</ul>
+
+<p>Files I have not tried to translate, as my project doesn&rsquo;t use them:</p>
+
+<ul>
+<li><code>Project\Synonyms</code></li>
+<li><code>Project\CSH</code></li>
+<li><code>Project\Browse sequences</code></li>
+</ul>
+
+<p>Files that need special treatment (will cover this in a future update – ignore them for now):</p>
+
+<ul>
+<li><code>Content\Stylesheets</code></li>
+</ul>
+
+<h3 id="creating-custom-filters">Creating custom filters</h3>
+
+<p>Rainbow includes a large set of filter configurations, which you can see by selecting <strong>Tools &gt; Filter Configurations</strong>. Rainbow uses these filters to  determine which parts of a given file are translatable, i.e. which parts it should extract and put in a translation package.</p>
+
+<p>A Flare project consists of HTML and XML files, and Rainbow will automatically apply the <strong>okf_html</strong> and <strong>okf_xml</strong> filters when you add such files to the input list (see the <strong>Filter Configuration</strong> column). For glossaries (<code>.flglo</code>) and variable sets (<code>.flvar</code>), the default <strong>okf_xml</strong> filter works fine, but the other file types require a little more work: we&rsquo;ll need to create custom filters for them.</p>
+
+<h4 id="create-filter-for-topics-htm-snippets-flsnp-and-master-pages-flmsp">Create filter for topics (<code>.htm</code>), snippets (<code>.flsnp</code>) and master pages (<code>.flmsp</code>)</h4>
+
+<ol>
+<li>Using your mouse and the <strong>Ctrl</strong> and <strong>Shift</strong> keys, select all files ending in <code>.htm</code>, <code>.flsnp</code> or <code>.flmsp</code>.</li>
+<li>Right-click on any of the selected files and select <strong>Edit Document Properties</strong>.
+The <strong>okf_html</strong> filter will be selected.</li>
+<li>Click <strong>Create</strong> to create a custom filter configuration based on <strong>okf_html</strong>.</li>
+<li>Enter the name <code>flare-topic</code> and click <strong>OK</strong>. The full name will appear as <code>okf_html@flare-topic</code>.
+The filter&rsquo;s parameters appear. This particular filter uses the <a href="https://en.wikipedia.org/wiki/YAML">YAML</a> format.</li>
+<li>Change <code>preserve_whitespace: false</code> to <code>true</code>. This ensures that the whitespace around e.g. cross-references is retained during conversion.</li>
+
+<li><p>Scroll down a little until you see <code>elements:</code> and insert the following lines immediately after it:</p>
+
+<pre><code class="language-yaml">madcap:variable:
+  ruleTypes: [INLINE]
+  SelementType: variable    
+</code></pre>
+
+<p>This ensures proper handling of in-line variables. (They are treated as line breaks otherwise.)</p></li>
+
+<li><p>Click <strong>OK</strong> to close the editor, then <strong>OK</strong> to return to the file list.</p></li>
+
+<li><p>Now is probably a good time to save your Rainbow configuration file, so select <strong>File &gt; Save</strong>.</p></li>
+</ol>
+
+<h4 id="create-filter-for-tocs-fltoc">Create filter for TOCs (<code>.fltoc</code>)</h4>
+
+<ol>
+<li>Using the same methods as above, select all <code>.fltoc</code> files and create a new filter called <code>okf_xml@flare-TOC</code>.
+Unsurprisingly, the parameters of this filter are written in XML.</li>
+
+<li><p>Replace the default parameters with the following:</p>
+
+<pre><code class="language-xml">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; standalone=&quot;no&quot;?&gt;
+&lt;its:rules xmlns:its=&quot;http://www.w3.org/2005/11/its&quot; xmlns:itsx=&quot;http://www.w3.org/2008/12/its-extensions&quot; xmlns:okp=&quot;okapi-framework:xmlfilter-options&quot; xmlns:xlink=&quot;http://www.w3.org/1999/xlink&quot; version=&quot;1.0&quot;&gt;
+  &lt;its:translateRule selector=&quot;//@Title&quot; translate=&quot;yes&quot;/&gt;
+  &lt;!-- See ITS specification at: http://www.w3.org/TR/its/ --&gt;
+&lt;/its:rules&gt;
+</code></pre></li>
+</ol>
+
+<p>This tells Rainbow that the values of all <code>Title</code> attributes contain translatable text. (By default, all attributes are considered non-translatable.)</p>
+
+<h4 id="create-filter-for-image-annotations-props">Create filter for image annotations (<code>.props</code>)</h4>
+
+<ol>
+<li><p>Select all <code>.props</code> files and create a new filter called <code>okf_xml@flare-props</code>, containing this code:</p>
+
+<pre><code class="language-xml">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; standalone=&quot;no&quot;?&gt;
+&lt;its:rules xmlns:its=&quot;http://www.w3.org/2005/11/its&quot; xmlns:itsx=&quot;http://www.w3.org/2008/12/its-extensions&quot; xmlns:okp=&quot;okapi-framework:xmlfilter-options&quot; xmlns:xlink=&quot;http://www.w3.org/1999/xlink&quot; version=&quot;1.0&quot;&gt;
+  &lt;its:translateRule selector=&quot;//fileProperties&quot; translate=&quot;no&quot;/&gt;
+  &lt;its:translateRule selector=&quot;//Shape[@Type='Annotation']&quot; translate=&quot;yes&quot;/&gt;
+  &lt;!-- See ITS specification at: http://www.w3.org/TR/its/ --&gt;
+&lt;/its:rules&gt;
+</code></pre></li>
+</ol>
+
+<p>This tells rainbow that all <code>&lt;fileProperties&gt;</code> elements <em>and</em> their children should be ignored, <em>except</em> when one of those children is a <code>&lt;Shape Type='Annotation'&gt;</code>.</p>
+
+<h3 id="save-your-filters-for-future-use">Save your filters for future use</h3>
+
+<p>It&rsquo;s a good idea to back up your custom filters for future translation projects. By default, they are stored in Rainbow&rsquo;s installation directory, in a subfolder called <code>config</code>. You can keep them there, or organize them by project/client/category/whatever.</p>
+
+<h3 id="create-the-translation-package">Create the translation package</h3>
+
+<p>Rainbow lets you create conversion &lsquo;pipelines&rsquo; that allow you to put in a bunch of files on one end (i.e. source texts, terminology files, translation memories) and get a neat little translation package at the other, that you can then send off to a translator/LSP. You can build these pipelines from scratch by using dozens of configurable steps, but Rainbow also comes with a couple of pre-defined pipelines, which you&rsquo;ll be using.</p>
+
+<ol>
+<li>Select <strong>Utilities &gt; Translation Kit Creation</strong>.
+This fires up the pre-defined pipeline for creating translation packages.</li>
+<li>In the list of steps on the left, select the bottom one (<strong>Rainbow TRanslation Kit Creation</strong>).</li>
+<li>On the <strong>Package Format</strong> tab, select <strong>Generic XLIFF</strong>.
+<strong>NOTE:</strong> Any CAT tool worth its salt (e.g. Trados, MemoQ, OmegaT) can handle <a href="https://en.wikipedia.org/wiki/XLIFF">XLIFF</a>, so that&rsquo;s what I use. But you can theoretically use any of the other formats as well – you just won&rsquo;t be able to use my instructions from hereon.</li>
+<li>Click <strong>Options</strong> and make sure these options are selected (they might be by default, I&rsquo;m not sure):
+
+<ul>
+<li><strong>Use &lt;g&gt;&lt;/g&gt; and &lt;x/&gt; notation</strong></li>
+<li><strong>Copy source text in target if no target is available</strong></li>
+</ul></li>
+<li>On the <strong>Output Location</strong> tab, choose an output folder and give the package a name. I recommend mentioning the source and target language in both.</li>
+<li>Optionally, add any translation memories, terminology files and other supporting documents on the <strong>Support Material</strong> tab.</li>
+<li>When you&rsquo;re ready, click <strong>Execute</strong>.
+Rainbow now goes through each file, extracts translatable text based on your filter configurations, splits that text into segments (i.e. sentences) and stores it all in XLIFF (<code>.xlf</code>) files. There will be one XLIFF file for each source file.
+Note that the log may contain some alarming lines like <code>Trying to end a TextUnit that does not exist</code>. Don&rsquo;t worry: as long as the error and warning counts at the bottom are both at 0, everything went fine.</li>
+</ol>
+
+<p>If everything goes well, your output folder will contain these things:</p>
+
+<ul>
+<li>A folder called <code>original</code>, which contains the original source files (for the translator&rsquo;s reference).</li>
+<li>A folder called <code>work</code>, which contains all the translatable <code>.xlf</code> files.</li>
+<li>A file called <code>manifest.rkm</code>, which contains information about where each individual translatable text came from. Rainbow uses this to determine where to insert the translations as it converts the translated files back to their original formats.</li>
+</ul>
+
+<p>If you want, you can get an idea of how your files will look like to the translator by opening them in <a href="http://www.omegat.org/en/omegat.html">OmegaT</a>.</p>
+
+<h2 id="translating-the-project-files">Translating the project files</h2>
+
+<h3 id="sending-the-package-to-your-translator">Sending the package to your translator</h3>
+
+<p>As I mentioned earlier, any serious CAT tool should be able to handle XLIFF files. By the same token, so should any serious translator. If your translator says they can&rsquo;t, find another translator.</p>
+
+<p>You can email the files in a zip file, host them on Dropbox, or transfer them any other way you want. It doesn&rsquo;t really matter, as long as:</p>
+
+<ul>
+<li>you get the translated files back in <code>.xlf</code> format;</li>
+<li>the original folder structure of the <code>work</code> folder is kept intact;</li>
+<li>the <code>manifest.rkm</code> file is not tampered with.</li>
+</ul>
+
+<p>Regarding that last point: I recommend not even sending it. It&rsquo;s vital for you, but the translator has no use for it.</p>
+
+<h3 id="processing-the-package-after-translation">Processing the package after translation</h3>
+
+<p>If everything went as it should, the translator should send you back the same basic set of files, with the same folder structure, except all the <code>.xlf</code> files have been modified. You can open them with a text editor and see that each source segment now has a matching translation. You&rsquo;re now going to run these files through Rainbow again to convert them back to their original format.</p>
+
+<ol>
+<li>In Rainbow, create a new configuration file (<strong>File &gt; New</strong>).
+<strong>NOTE:</strong> If you&rsquo;re like me, you&rsquo;d expect to load up your previous configuration and continue where you left off. But that&rsquo;s not how Rainbow works – you really do need a fresh config.</li>
+<li>Drag the <code>manifest.rkm</code> file into the file list.</li>
+<li>Select <strong>Utilities &gt; Translation Kit Post-Processing</strong>. This loads up another pre-defined pipeline that more or less does the reverse of the one you used previously.</li>
+<li>Click <strong>Execute</strong>. You&rsquo;ll see an overview of all the files that are going to be post-processed.</li>
+<li>Click <strong>Continue</strong>.</li>
+</ol>
+
+<p>The converted, translated files will be in a folder called <code>done</code>, on the same level als the <code>original</code> and <code>work</code> folders.</p>
+
+<h2 id="building-the-translated-project">Building the translated project</h2>
+
+<p>Copy the translated files into your project folder. Build the project. Done!</p>
+
+<!--
+## Translating subsequent updates
+
+How to handle updates after the bulk is published? Just send out entire project again with TM included? Could work I guess.
+-->
+
+              <hr>
+              <div class="related-posts">
+                <h5>Related Posts</h5>
+                
+              </div>
+            </div>
+          </div>
+          <hr>
+        <div class="disqus">
+  <div id="disqus_thread"></div>
+  <script type="text/javascript">
+
+    (function() {
+      
+      
+      if (window.location.hostname == "localhost")
+        return;
+
+      var disqus_shortname = 'wouter-tech';
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+  </script>
+  <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+  <a href="http://disqus.com/" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+</div>
+        </div>
+      
+      </div>
+    </div>
+
+    
+    <footer>
+  <div id="footer">
+    <div class="container">
+      <p class="text-muted">&copy; All rights reserved. Powered by <a href="https://gohugo.io/">Hugo</a> and
+      <a href="http://www.github.com/sumaxime/hugo-sustain/">sustain</a> with ♥</p>
+    </div>
+  </div>
+</footer>
+<div class="footer"></div>
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+<script src="http://wouter.tech/js/docs.min.js"></script>
+<script src="http://wouter.tech/js/main.js"></script>
+
+<script src="http://wouter.tech/js/ie10-viewport-bug-workaround.js"></script><!-- Syntax highlighting -->
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.7.0/highlight.min.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+
+
+    
+  </body>
+</html>

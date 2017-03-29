@@ -1,0 +1,44 @@
+baseurl = "http://wouter.tech/"
+languageCode = "en-US"
+title = "Wouter Veeken – Technical writer, information architect, localization professional"
+# Enable comments by entering your Disqus shortname
+disqusShortname = "wouter-tech"
+# Enable Google Analytics by entering your tracking code
+googleAnalytics = "UA-96197135-1"
+theme = "hugo-sustain"
+
+[permalinks]
+  post = "/:year/:month/:day/:slug"
+
+[params]
+  avatar = "me.png"
+  author = "Wouter Veeken"
+  description = "Technical writer from Amsterdam, the Netherlands"
+
+  # Custom assets can be linked with their paths relative to static/
+  custom_css = []
+  custom_js  = []
+
+[social]
+  Github        = "wouter-veeken"
+  Email         = "me@wouter.tech"
+  LinkedIn      = "wouter-veeken"
+  Twitter       = "wouter_tech"
+#  Stackoverflow = "username"
+
+## Main Menu
+[[menu.main]]
+  name = "blog"
+  weight = 100
+  identifier = "blog"
+  url = "/blog/"
+[[menu.main]]
+  name = "projects"
+  identifier = "projects"
+  weight = 200
+  url = "/projects/"
+# [[menu.main]]
+#   name = "resume"
+#   identifier = "resume"
+#   weight = 300
+#   url = "/resume/"

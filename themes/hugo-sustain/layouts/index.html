@@ -1,0 +1,19 @@
+{{ partial "head" . }}
+  <body>
+    <div id="wrap">
+      {{ partial "header" . }}
+      <section id="about">
+        <div class="container">
+        <div class="avatar">
+          <img class="img-circle" src="{{ .Site.BaseURL }}img/{{ .Site.Params.avatar }}" alt="Responsive image">
+        </div>
+        <h3>Hi, I'm <strong>{{ .Site.Params.author }}</strong>.</h3>
+        <h3>I am a technical writer from Amsterdam, the Netherlands.</h3>
+        <h3>Have a look at some of my <a href="{{ .Site.BaseURL }}projects/">work</a>, check out my <a href="{{ .Site.BaseURL }}blog/">blog</a>, or get in touch using the buttons below.</h3>
+        {{ partial "social.html" . }}
+        </div>
+      </section>
+    </div>
+    {{ partial "footer" . }}
+  </body>
+</html>
