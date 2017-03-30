@@ -16,7 +16,7 @@
       <guid>http://wouter.tech/blog/translating-flare-without-lingo/</guid>
       <description>
 
-&lt;p&gt;I don&amp;rsquo;t really like MadCap Lingo. Compared to other modern, more mature CAT tools, it&amp;rsquo;s I have found it buggy and primitive, not to mention expensive for what it does. So when I needed to get my MadCap Flare project translated into 4 different languages, I came up with an alternative solution using an open source tool called Rainbow. I am sharing my approach here for the benefit of others.&lt;/p&gt;
+&lt;p&gt;I don&amp;rsquo;t really like MadCap Lingo. Compared to other modern, more mature CAT tools, I have found it buggy and primitive, not to mention expensive for what it does. So when I needed to get my MadCap Flare project translated into 4 different languages, I came up with an alternative solution using an open source tool called Rainbow. I am sharing my approach here for the benefit of others.&lt;/p&gt;
 
 &lt;p&gt;&lt;strong&gt;DISCLAIMER&lt;/strong&gt;: The below has worked for me – so far. My translations are still ongoing. It&amp;rsquo;s entirely possible that 1) my methods don&amp;rsquo;t work for your project and 2) I run into problems with my own project later on. Nevertheless, I am hoping this will get you at least part of the way there. You&amp;rsquo;re always welcome to &lt;a href=&#34;mailto:me@wouter.tech&#34;&gt;ask me questions&lt;/a&gt; if you think I can help.&lt;/p&gt;
 
@@ -67,7 +67,7 @@
 &lt;li&gt;[-] Can&amp;rsquo;t extract image annotations for translation.&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;p&gt;Although there are several reasons why I chose the first approach, that last one cinched it for me. If image annotations are not a factor for you, perhaps it might be easier to just zip the output and send it off to your translator or LSP.&lt;/p&gt;
+&lt;p&gt;Although there are several reasons why I chose the first approach, that last one clinched it for me. If image annotations are not a factor for you, perhaps it might be easier to just zip the output and send it off to your translator or LSP.&lt;/p&gt;
 
 &lt;h2 id=&#34;high-level-steps&#34;&gt;High-level steps&lt;/h2&gt;
 

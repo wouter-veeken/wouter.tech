@@ -17,7 +17,7 @@ categories = [
 ]
 +++
 
-I don't really like MadCap Lingo. Compared to other modern, more mature CAT tools, it's I have found it buggy and primitive, not to mention expensive for what it does. So when I needed to get my MadCap Flare project translated into 4 different languages, I came up with an alternative solution using an open source tool called Rainbow. I am sharing my approach here for the benefit of others.
+I don't really like MadCap Lingo. Compared to other modern, more mature CAT tools, I have found it buggy and primitive, not to mention expensive for what it does. So when I needed to get my MadCap Flare project translated into 4 different languages, I came up with an alternative solution using an open source tool called Rainbow. I am sharing my approach here for the benefit of others.
 
 **DISCLAIMER**: The below has worked for me – so far. My translations are still ongoing. It's entirely possible that 1) my methods don't work for your project and 2) I run into problems with my own project later on. Nevertheless, I am hoping this will get you at least part of the way there. You're always welcome to [ask me questions](mailto:me@wouter.tech) if you think I can help.
 
@@ -57,7 +57,7 @@ Translating the output:
 - [-] Translation package will contain lots of repetition (e.g. snippets, the same TOC on every page), which is annoying for translator and may affect translation cost.
 - [-] Can't extract image annotations for translation.
 
-Although there are several reasons why I chose the first approach, that last one cinched it for me. If image annotations are not a factor for you, perhaps it might be easier to just zip the output and send it off to your translator or LSP.
+Although there are several reasons why I chose the first approach, that last one clinched it for me. If image annotations are not a factor for you, perhaps it might be easier to just zip the output and send it off to your translator or LSP.
 
 ## High-level steps
 
@@ -89,7 +89,7 @@ Fire up Rainbow and do these things:
 2. On the same tab, set the encoding for source and target to **Unicode (UTF-8)**.
 
     **NOTE**: This was the correct encoding for my project files – I assume it's the same for all Flare projects. You can check by opening one of your topics in a program like [Notepad++](https://notepad-plus-plus.org/).
-    
+
 3. On the **Other Settings** tab, de-select **Use an extension**. This is important because you want the final, translated files to retain their original names. Under the default settings, `topic.htm` becomes `topic.out.htm`.
 4. Save your configuration (**File > Save**).
 
