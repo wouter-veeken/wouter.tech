@@ -123,7 +123,8 @@ ga('send', 'pageview');
 <ul>
 <li>[+] Everything is nicely compartmentalized, i.e. variables, snippets, TOC, topics are in separate files.</li>
 <li>[+] Can extract image annotations for translation (if you&rsquo;re using Capture).</li>
-<li>[-] Can&rsquo;t use condition tags to exclude files you don&rsquo;t want to translate.</li>
+<li><del>[-] Can&rsquo;t use condition tags to exclude files you don&rsquo;t want to translate.</del>
+<strong>EDIT 03-Apr-2017</strong>: I totally failed to notice that you can choose include/exclude conditions when you <a href="#PreparingYourProjectForTranslation">export the project from Flare</a>. So this isn&rsquo;t a con at all!</li>
 <li>[-] Since you have to build the project after putting the files through multiple conversion and translation steps, there might be some surprises.</li>
 </ul>
 
@@ -131,7 +132,6 @@ ga('send', 'pageview');
 
 <ul>
 <li>[+] Project is already built, so the risk of breaking stuff by converting/translating files is much smaller.</li>
-<li>[+] Can use condition tags to exclude files from translation.</li>
 <li>[-] Translation package will contain lots of repetition (e.g. snippets, the same TOC on every page), which is annoying for translator and may affect translation cost.</li>
 <li>[-] Can&rsquo;t extract image annotations for translation.</li>
 </ul>
@@ -154,9 +154,17 @@ ga('send', 'pageview');
 
 <p>This is just to provide an overview. It is not a table of contents.</p>
 
-<h2 id="preparing-your-project-for-translation">Preparing your project for translation</h2>
+<h2 id="a-name-preparingyourprojectfortranslation-a-preparing-your-project-for-translation"><a name="PreparingYourProjectForTranslation"></a>Preparing your project for translation</h2>
 
-<p>Open your project in Flare and select <strong>Project &gt; Export Project</strong> to create a copy. I recommend appending the filename with the source and target language codes, e.g. <code>my_flare_project_en-US_fr-FR.flprj</code> if you&rsquo;re translating from (US) English to French.</p>
+<p>Open your project in Flare and select <strong>Project &gt; Export Project</strong> to create a copy. Tips:</p>
+
+<ul>
+<li><p>Select <strong>Export From</strong> &gt; <strong>Using Conditions</strong> to exclude drafts and other files you don&rsquo;t want translated.</p>
+
+<p><strong>NOTE:</strong> You might think it clever to use a special condition tag to explicitly mark files for translation, but bear in mind you&rsquo;ll be building the project afterwards. So if you do use a special tag, make sure you include in your export all the files required for a successful build.</p></li>
+
+<li><p>I recommend appending the filename of the exported project with the source and target language codes. E.g. if you&rsquo;re translating from (US) English to French, save as <code>my_flare_project_en-US_fr-FR.flprj</code>.</p></li>
+</ul>
 
 <h2 id="preparing-your-translation-package-with-rainbow">Preparing your translation package with Rainbow</h2>
 
@@ -192,19 +200,19 @@ ga('send', 'pageview');
 <p>From the <code>Project</code> folder:</p>
 
 <ul>
-<li>Glossaries (<code>.flglo</code>)</li>
-<li>TOCs (<code>.fltoc</code>)</li>
-<li>VariableSets (<code>.flvar</code>)</li>
+<li><code>Project\Glossaries</code> (<code>.flglo</code>)</li>
+<li><code>Project\TOCs</code> (<code>.fltoc</code>)</li>
+<li><code>Project\VariableSets</code> (<code>.flvar</code>)</li>
 </ul>
 
 <p>From the <code>Content</code> folder:</p>
 
 <ul>
-<li>MasterPages (<code>.flmsp</code>)</li>
-<li>Image properties (<code>.props</code>)</li>
-<li>PageLayouts (<code>.flpgl</code>)</li>
-<li>Snippets (<code>.flsnp</code>)</li>
-<li>Topics (<code>.htm</code>)</li>
+<li><code>Content\MasterPages</code> (<code>.flmsp</code>)</li>
+<li><code>Content\PageLayouts</code> (<code>.flpgl</code>)</li>
+<li>All image property files (<code>.props</code>)</li>
+<li>All snippet files (<code>.flsnp</code>)</li>
+<li>All topic files (<code>.htm</code>)</li>
 </ul>
 
 <p>Files I have not tried to translate, as my project doesn&rsquo;t use them:</p>
@@ -314,7 +322,7 @@ ga('send', 'pageview');
 
 <p>This tells rainbow that all <code>&lt;fileProperties&gt;</code> elements <em>and</em> their children should be ignored, <em>except</em> when one of those children is a <code>&lt;Shape Type='Annotation'&gt;</code>.</p>
 
-<h3 id="save-your-filters-for-future-use">Save your filters for future use</h3>
+<h4 id="save-your-filters-for-future-use">Save your filters for future use</h4>
 
 <p>It&rsquo;s a good idea to back up your custom filters for future translation projects. By default, they are stored in Rainbow&rsquo;s installation directory, in a subfolder called <code>config</code>. You can keep them there, or organize them by project/client/category/whatever.</p>
 
@@ -402,7 +410,7 @@ This fires up the pre-defined pipeline for creating translation packages.</p>
 
 <h2 id="building-the-translated-project">Building the translated project</h2>
 
-<p>Copy the translated files into your project folder. Build the project. Done!</p>
+<p>Copy the translated files into your target-language project folder. Build the project. Done!</p>
 
 <!--
 ## Translating subsequent updates

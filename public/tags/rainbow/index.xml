@@ -54,7 +54,8 @@
 &lt;ul&gt;
 &lt;li&gt;[+] Everything is nicely compartmentalized, i.e. variables, snippets, TOC, topics are in separate files.&lt;/li&gt;
 &lt;li&gt;[+] Can extract image annotations for translation (if you&amp;rsquo;re using Capture).&lt;/li&gt;
-&lt;li&gt;[-] Can&amp;rsquo;t use condition tags to exclude files you don&amp;rsquo;t want to translate.&lt;/li&gt;
+&lt;li&gt;&lt;del&gt;[-] Can&amp;rsquo;t use condition tags to exclude files you don&amp;rsquo;t want to translate.&lt;/del&gt;
+&lt;strong&gt;EDIT 03-Apr-2017&lt;/strong&gt;: I totally failed to notice that you can choose include/exclude conditions when you &lt;a href=&#34;#PreparingYourProjectForTranslation&#34;&gt;export the project from Flare&lt;/a&gt;. So this isn&amp;rsquo;t a con at all!&lt;/li&gt;
 &lt;li&gt;[-] Since you have to build the project after putting the files through multiple conversion and translation steps, there might be some surprises.&lt;/li&gt;
 &lt;/ul&gt;
 
@@ -62,7 +63,6 @@
 
 &lt;ul&gt;
 &lt;li&gt;[+] Project is already built, so the risk of breaking stuff by converting/translating files is much smaller.&lt;/li&gt;
-&lt;li&gt;[+] Can use condition tags to exclude files from translation.&lt;/li&gt;
 &lt;li&gt;[-] Translation package will contain lots of repetition (e.g. snippets, the same TOC on every page), which is annoying for translator and may affect translation cost.&lt;/li&gt;
 &lt;li&gt;[-] Can&amp;rsquo;t extract image annotations for translation.&lt;/li&gt;
 &lt;/ul&gt;
@@ -85,9 +85,17 @@
 
 &lt;p&gt;This is just to provide an overview. It is not a table of contents.&lt;/p&gt;
 
-&lt;h2 id=&#34;preparing-your-project-for-translation&#34;&gt;Preparing your project for translation&lt;/h2&gt;
+&lt;h2 id=&#34;a-name-preparingyourprojectfortranslation-a-preparing-your-project-for-translation&#34;&gt;&lt;a name=&#34;PreparingYourProjectForTranslation&#34;&gt;&lt;/a&gt;Preparing your project for translation&lt;/h2&gt;
 
-&lt;p&gt;Open your project in Flare and select &lt;strong&gt;Project &amp;gt; Export Project&lt;/strong&gt; to create a copy. I recommend appending the filename with the source and target language codes, e.g. &lt;code&gt;my_flare_project_en-US_fr-FR.flprj&lt;/code&gt; if you&amp;rsquo;re translating from (US) English to French.&lt;/p&gt;
+&lt;p&gt;Open your project in Flare and select &lt;strong&gt;Project &amp;gt; Export Project&lt;/strong&gt; to create a copy. Tips:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;Select &lt;strong&gt;Export From&lt;/strong&gt; &amp;gt; &lt;strong&gt;Using Conditions&lt;/strong&gt; to exclude drafts and other files you don&amp;rsquo;t want translated.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;NOTE:&lt;/strong&gt; You might think it clever to use a special condition tag to explicitly mark files for translation, but bear in mind you&amp;rsquo;ll be building the project afterwards. So if you do use a special tag, make sure you include in your export all the files required for a successful build.&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;I recommend appending the filename of the exported project with the source and target language codes. E.g. if you&amp;rsquo;re translating from (US) English to French, save as &lt;code&gt;my_flare_project_en-US_fr-FR.flprj&lt;/code&gt;.&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
 
 &lt;h2 id=&#34;preparing-your-translation-package-with-rainbow&#34;&gt;Preparing your translation package with Rainbow&lt;/h2&gt;
 
@@ -123,19 +131,19 @@
 &lt;p&gt;From the &lt;code&gt;Project&lt;/code&gt; folder:&lt;/p&gt;
 
 &lt;ul&gt;
-&lt;li&gt;Glossaries (&lt;code&gt;.flglo&lt;/code&gt;)&lt;/li&gt;
-&lt;li&gt;TOCs (&lt;code&gt;.fltoc&lt;/code&gt;)&lt;/li&gt;
-&lt;li&gt;VariableSets (&lt;code&gt;.flvar&lt;/code&gt;)&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;Project\Glossaries&lt;/code&gt; (&lt;code&gt;.flglo&lt;/code&gt;)&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;Project\TOCs&lt;/code&gt; (&lt;code&gt;.fltoc&lt;/code&gt;)&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;Project\VariableSets&lt;/code&gt; (&lt;code&gt;.flvar&lt;/code&gt;)&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;p&gt;From the &lt;code&gt;Content&lt;/code&gt; folder:&lt;/p&gt;
 
 &lt;ul&gt;
-&lt;li&gt;MasterPages (&lt;code&gt;.flmsp&lt;/code&gt;)&lt;/li&gt;
-&lt;li&gt;Image properties (&lt;code&gt;.props&lt;/code&gt;)&lt;/li&gt;
-&lt;li&gt;PageLayouts (&lt;code&gt;.flpgl&lt;/code&gt;)&lt;/li&gt;
-&lt;li&gt;Snippets (&lt;code&gt;.flsnp&lt;/code&gt;)&lt;/li&gt;
-&lt;li&gt;Topics (&lt;code&gt;.htm&lt;/code&gt;)&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;Content\MasterPages&lt;/code&gt; (&lt;code&gt;.flmsp&lt;/code&gt;)&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;Content\PageLayouts&lt;/code&gt; (&lt;code&gt;.flpgl&lt;/code&gt;)&lt;/li&gt;
+&lt;li&gt;All image property files (&lt;code&gt;.props&lt;/code&gt;)&lt;/li&gt;
+&lt;li&gt;All snippet files (&lt;code&gt;.flsnp&lt;/code&gt;)&lt;/li&gt;
+&lt;li&gt;All topic files (&lt;code&gt;.htm&lt;/code&gt;)&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;p&gt;Files I have not tried to translate, as my project doesn&amp;rsquo;t use them:&lt;/p&gt;
@@ -245,7 +253,7 @@
 
 &lt;p&gt;This tells rainbow that all &lt;code&gt;&amp;lt;fileProperties&amp;gt;&lt;/code&gt; elements &lt;em&gt;and&lt;/em&gt; their children should be ignored, &lt;em&gt;except&lt;/em&gt; when one of those children is a &lt;code&gt;&amp;lt;Shape Type=&#39;Annotation&#39;&amp;gt;&lt;/code&gt;.&lt;/p&gt;
 
-&lt;h3 id=&#34;save-your-filters-for-future-use&#34;&gt;Save your filters for future use&lt;/h3&gt;
+&lt;h4 id=&#34;save-your-filters-for-future-use&#34;&gt;Save your filters for future use&lt;/h4&gt;
 
 &lt;p&gt;It&amp;rsquo;s a good idea to back up your custom filters for future translation projects. By default, they are stored in Rainbow&amp;rsquo;s installation directory, in a subfolder called &lt;code&gt;config&lt;/code&gt;. You can keep them there, or organize them by project/client/category/whatever.&lt;/p&gt;
 
@@ -333,7 +341,7 @@ This fires up the pre-defined pipeline for creating translation packages.&lt;/p&
 
 &lt;h2 id=&#34;building-the-translated-project&#34;&gt;Building the translated project&lt;/h2&gt;
 
-&lt;p&gt;Copy the translated files into your project folder. Build the project. Done!&lt;/p&gt;
+&lt;p&gt;Copy the translated files into your target-language project folder. Build the project. Done!&lt;/p&gt;
 
 &lt;!--
 ## Translating subsequent updates

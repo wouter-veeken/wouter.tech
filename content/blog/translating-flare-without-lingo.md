@@ -47,13 +47,13 @@ Translating the project:
 
 - [+] Everything is nicely compartmentalized, i.e. variables, snippets, TOC, topics are in separate files.
 - [+] Can extract image annotations for translation (if you're using Capture).
-- [-] Can't use condition tags to exclude files you don't want to translate.
+- ~~[-] Can't use condition tags to exclude files you don't want to translate.~~
+    **EDIT 03-Apr-2017**: I totally failed to notice that you can choose include/exclude conditions when you <a href="#PreparingYourProjectForTranslation">export the project from Flare</a>. So this isn't a con at all!
 - [-] Since you have to build the project after putting the files through multiple conversion and translation steps, there might be some surprises.
 
 Translating the output:
 
 - [+] Project is already built, so the risk of breaking stuff by converting/translating files is much smaller.
-- [+] Can use condition tags to exclude files from translation.
 - [-] Translation package will contain lots of repetition (e.g. snippets, the same TOC on every page), which is annoying for translator and may affect translation cost.
 - [-] Can't extract image annotations for translation.
 
@@ -73,9 +73,15 @@ Here's what you'll roughly be doing if you follow my instructions:
 
 This is just to provide an overview. It is not a table of contents.
 
-## Preparing your project for translation
+## <a name="PreparingYourProjectForTranslation"></a>Preparing your project for translation
 
-Open your project in Flare and select **Project > Export Project** to create a copy. I recommend appending the filename with the source and target language codes, e.g. `my_flare_project_en-US_fr-FR.flprj` if you're translating from (US) English to French.
+Open your project in Flare and select **Project > Export Project** to create a copy. Tips:
+
+* Select **Export From** > **Using Conditions** to exclude drafts and other files you don't want translated.
+
+    **NOTE:** You might think it clever to use a special condition tag to explicitly mark files for translation, but bear in mind you'll be building the project afterwards. So if you do use a special tag, make sure you include in your export all the files required for a successful build.
+
+* I recommend appending the filename of the exported project with the source and target language codes. E.g. if you're translating from (US) English to French, save as `my_flare_project_en-US_fr-FR.flprj`.
 
 ## Preparing your translation package with Rainbow
 
@@ -104,17 +110,17 @@ Fire up Rainbow and do these things:
 
 From the `Project` folder:
 
-* Glossaries (`.flglo`)
-* TOCs (`.fltoc`)
-* VariableSets (`.flvar`)
+* `Project\Glossaries` (`.flglo`)
+* `Project\TOCs` (`.fltoc`)
+* `Project\VariableSets` (`.flvar`)
 
 From the `Content` folder:
 
-* MasterPages (`.flmsp`)
-* Image properties (`.props`)
-* PageLayouts (`.flpgl`)
-* Snippets (`.flsnp`)
-* Topics (`.htm`)
+* `Content\MasterPages` (`.flmsp`)
+* `Content\PageLayouts` (`.flpgl`)
+* All image property files (`.props`)
+* All snippet files (`.flsnp`)
+* All topic files (`.htm`)
 
 Files I have not tried to translate, as my project doesn't use them:
 
@@ -210,7 +216,7 @@ This tells Rainbow that the values of all `Title` attributes contain translatabl
 
 This tells rainbow that all `<fileProperties>` elements _and_ their children should be ignored, _except_ when one of those children is a `<Shape Type='Annotation'>`.
 
-### Save your filters for future use
+#### Save your filters for future use
 
 It's a good idea to back up your custom filters for future translation projects. By default, they are stored in Rainbow's installation directory, in a subfolder called `config`. You can keep them there, or organize them by project/client/category/whatever.
 
@@ -280,7 +286,7 @@ The converted, translated files will be in a folder called `done`, on the same l
 
 ## Building the translated project
 
-Copy the translated files into your project folder. Build the project. Done!
+Copy the translated files into your target-language project folder. Build the project. Done!
 
 <!--
 ## Translating subsequent updates
