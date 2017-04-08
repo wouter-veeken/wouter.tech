@@ -9,6 +9,36 @@
     <atom:link href="http://wouter.tech/tags/madcap/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
+      <title>Customizing the printed version of your Flare web output</title>
+      <link>http://wouter.tech/blog/customizing-printed-web-output-flare/</link>
+      <pubDate>Sat, 08 Apr 2017 00:00:00 +0000</pubDate>
+      
+      <guid>http://wouter.tech/blog/customizing-printed-web-output-flare/</guid>
+      <description>&lt;p&gt;Lots of people who read docs, myself included, like to occasionally print (parts of) them to read them the old-fashioned way. So if you&amp;rsquo;re using any kind of web output for your Flare project, it&amp;rsquo;s a good idea include a &lt;strong&gt;Print&lt;/strong&gt; button on each page. The most obvious way to do this is to &lt;a href=&#34;http://help.madcapsoftware.com/flare2017/Content/Proxies/Using_the_Topic_Toolbar_Proxy.htm&#34;&gt;add a topic toolbar proxy to your master page&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;If you&amp;rsquo;ve customized your master pages a lot, however, you might notice a problem when you print a page: in addition to the topic&amp;rsquo;s body text, all sorts of unnecessary elements are also printed, e.g. the side menu, mini-TOCs, breadcrumbs, etc. Luckily, there&amp;rsquo;s an easy way to determine which parts should and shouldn&amp;rsquo;t be printed:&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;&lt;p&gt;Add the following lines to your project/topic stylesheet:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-css&#34;&gt;@media print {
+    .no-print,
+      .no-print * {
+             display: none !important;
+      }
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;This means that any elements with the class &lt;code&gt;no-print&lt;/code&gt;, &lt;em&gt;and&lt;/em&gt; any children of elements with that class, will be hidden from printed output.&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;In your master pages, add the &lt;code&gt;no-print&lt;/code&gt; class to all relevant elements.&lt;/p&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;It will probably take a bit of trial and error before you get the printed output to look exactly as you want. Remember that you can use the developer console in your browser (&lt;strong&gt;F12&lt;/strong&gt; or &lt;strong&gt;Ctrl + Shift + I&lt;/strong&gt;) to add and remove classes on the fly.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
       <title>Translating a MadCap Flare project without Lingo</title>
       <link>http://wouter.tech/blog/translating-flare-without-lingo/</link>
       <pubDate>Fri, 24 Mar 2017 00:00:00 +0000</pubDate>
