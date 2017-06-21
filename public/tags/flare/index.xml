@@ -46,7 +46,7 @@
       <guid>http://wouter.tech/blog/translating-flare-without-lingo/</guid>
       <description>
 
-&lt;p&gt;I don&amp;rsquo;t really like MadCap Lingo. Compared to other modern, more mature CAT tools, I have found it buggy and primitive, not to mention expensive for what it does. So when I needed to get my MadCap Flare project translated into 4 different languages, I came up with an alternative solution using an open source tool called Rainbow. I am sharing my approach here for the benefit of others.&lt;/p&gt;
+&lt;p&gt;For reasons I won&amp;rsquo;t go into, I&amp;rsquo;m not a fan of MadCap Lingo. So when I needed to get my MadCap Flare project translated into 4 different languages, I came up with an alternative solution using an open source tool called &lt;a href=&#34;https://bintray.com/okapi/Distribution/Okapi_Applications&#34;&gt;Rainbow&lt;/a&gt;. I am sharing my approach here for the benefit of others.&lt;/p&gt;
 
 &lt;p&gt;&lt;strong&gt;DISCLAIMER&lt;/strong&gt;: The below has worked for me – so far. My translations are still ongoing. It&amp;rsquo;s entirely possible that 1) my methods don&amp;rsquo;t work for your project and 2) I run into problems with my own project later on. Nevertheless, I am hoping this will get you at least part of the way there. You&amp;rsquo;re always welcome to &lt;a href=&#34;mailto:me@wouter.tech&#34;&gt;ask me questions&lt;/a&gt; if you think I can help.&lt;/p&gt;
 
@@ -56,9 +56,9 @@
 &lt;li&gt;Some knowledge of HTML, XML and similar markup languages;&lt;/li&gt;
 &lt;li&gt;a MadCap Flare project;&lt;/li&gt;
 
-&lt;li&gt;&lt;p&gt;Rainbow, which is bundled with the &lt;a href=&#34;https://bintray.com/okapi/Distribution/Okapi_Applications&#34;&gt;Okapi Framework apps&lt;/a&gt;.&lt;/p&gt;
+&lt;li&gt;&lt;p&gt;Rainbow, which is bundled with the &lt;a href=&#34;https://bintray.com/okapi/Distribution/Okapi_Applications&#34;&gt;Okapi Framework apps&lt;/a&gt;&lt;/p&gt;
 
-&lt;p&gt;&lt;strong&gt;NOTE:&lt;/strong&gt; Some people have reported problems running the 64-bit version of Rainbow. If that&amp;rsquo;s the case for you, just install the 32-bit version. It works exactly the same.&lt;/p&gt;&lt;/li&gt;
+&lt;p&gt;&lt;strong&gt;NOTE:&lt;/strong&gt; Some people have reported problems running the 64-bit version of Rainbow. If that&amp;rsquo;s the case for you, install the 32-bit version. It works exactly the same.&lt;/p&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;p&gt;In addition to the above, it helps if you have:&lt;/p&gt;
@@ -77,7 +77,7 @@
 
 &lt;h2 id=&#34;translating-the-project-vs-translating-the-output&#34;&gt;Translating the project vs. translating the output&lt;/h2&gt;
 
-&lt;p&gt;There are essentially two ways you can approach the translation of your Flare project: you can either translate your original project files (pre-build), or you can translate the actual output (post-build). My process uses the first approach, but here are some pros and cons for both options:&lt;/p&gt;
+&lt;p&gt;You can approach the translation of your Flare project in two ways. You can either translate your original project files (pre-build), or you can translate the actual output (post-build). My process uses the first approach, but here are some pros and cons for both options:&lt;/p&gt;
 
 &lt;p&gt;Translating the project:&lt;/p&gt;
 
@@ -115,19 +115,25 @@
 
 &lt;p&gt;This is just to provide an overview. It is not a table of contents.&lt;/p&gt;
 
-&lt;h2 id=&#34;a-name-preparingyourprojectfortranslation-a-preparing-your-project-for-translation&#34;&gt;&lt;a name=&#34;PreparingYourProjectForTranslation&#34;&gt;&lt;/a&gt;Preparing your project for translation&lt;/h2&gt;
+&lt;h2 id=&#34;a-name-preparingyourprojectfortranslation-a-part-1-of-4-preparing-your-project-for-translation&#34;&gt;&lt;a name=&#34;PreparingYourProjectForTranslation&#34;&gt;&lt;/a&gt;Part 1 of 4: Preparing your project for translation&lt;/h2&gt;
 
-&lt;p&gt;Open your project in Flare and select &lt;strong&gt;Project &amp;gt; Export Project&lt;/strong&gt; to create a copy. Tips:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;p&gt;Open your project in Flare and select &lt;strong&gt;Project &amp;gt; Export Project&lt;/strong&gt; to create a copy. Tips:&lt;/p&gt;
 
 &lt;ul&gt;
 &lt;li&gt;&lt;p&gt;Select &lt;strong&gt;Export From&lt;/strong&gt; &amp;gt; &lt;strong&gt;Using Conditions&lt;/strong&gt; to exclude drafts and other files you don&amp;rsquo;t want translated.&lt;/p&gt;
 
-&lt;p&gt;&lt;strong&gt;NOTE:&lt;/strong&gt; You might think it clever to use a special condition tag to explicitly mark files for translation, but bear in mind you&amp;rsquo;ll be building the project afterwards. So if you do use a special tag, make sure you include in your export all the files required for a successful build.&lt;/p&gt;&lt;/li&gt;
+&lt;p&gt;&lt;strong&gt;NOTE:&lt;/strong&gt; You could use a special condition tag to explicitly mark files for translation, but make sure you export all the files you need to be able to build the project at the end.&lt;/p&gt;&lt;/li&gt;
 
 &lt;li&gt;&lt;p&gt;I recommend appending the filename of the exported project with the source and target language codes. E.g. if you&amp;rsquo;re translating from (US) English to French, save as &lt;code&gt;my_flare_project_en-US_fr-FR.flprj&lt;/code&gt;.&lt;/p&gt;&lt;/li&gt;
-&lt;/ul&gt;
+&lt;/ul&gt;&lt;/li&gt;
 
-&lt;h2 id=&#34;preparing-your-translation-package-with-rainbow&#34;&gt;Preparing your translation package with Rainbow&lt;/h2&gt;
+&lt;li&gt;&lt;p&gt;Open the exported project and select &lt;strong&gt;Project &amp;gt; Project Properties&lt;/strong&gt;.&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;Under &lt;strong&gt;Language&lt;/strong&gt;, select the target language. This should take care of any translatable labels in your project skins (e.g. search box place holder, topic toolbar buttons), provided that 1) Flare has default translations for the chosen language and 2) you have configured your skins to use the default project language.&lt;/p&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h2 id=&#34;part-2-of-4-preparing-your-translation-package-with-rainbow&#34;&gt;Part 2 of 4: Preparing your translation package with Rainbow&lt;/h2&gt;
 
 &lt;p&gt;Rainbow is sort of a Swiss army knife for translators and translation project managers. It offers file conversion, terminology extraction, quality checks, pre-translation, and about a million other things I haven&amp;rsquo;t even begun to explore myself. Unfortunately, it&amp;rsquo;s also got a steep learning curve. There&amp;rsquo;s a &lt;a href=&#34;http://okapiframework.org/wiki/index.php?title=Rainbow&#34;&gt;wiki&lt;/a&gt; which is fairly comprehensive, but it often lacks detail in important areas, and some parts seem out of date. Thankfully, you&amp;rsquo;ve got this blog to help you!&lt;/p&gt;
 
@@ -333,11 +339,11 @@ This fires up the pre-defined pipeline for creating translation packages.&lt;/p&
 
 &lt;p&gt;If you want, you can open your files in &lt;a href=&#34;http://www.omegat.org/en/omegat.html&#34;&gt;OmegaT&lt;/a&gt; to see how they look for the translator.&lt;/p&gt;
 
-&lt;h2 id=&#34;translating-the-project-files&#34;&gt;Translating the project files&lt;/h2&gt;
+&lt;h2 id=&#34;part-3-of-4-translating-the-project-files&#34;&gt;Part 3 of 4: Translating the project files&lt;/h2&gt;
 
 &lt;h3 id=&#34;sending-the-package-to-your-translator&#34;&gt;Sending the package to your translator&lt;/h3&gt;
 
-&lt;p&gt;As I mentioned earlier, any serious CAT tool should be able to handle XLIFF files. By the same token, so should any serious translator. If your translator says they can&amp;rsquo;t, find another translator.&lt;/p&gt;
+&lt;p&gt;As I mentioned earlier, any serious CAT tool should be able to handle XLIFF files. By the same token, so should any serious translator. If your translator says they can&amp;rsquo;t work with XLIFF, find another translator.&lt;/p&gt;
 
 &lt;p&gt;You can email the files in a zip file, host them on Dropbox, or transfer them any other way you want. It doesn&amp;rsquo;t really matter, as long as:&lt;/p&gt;
 
@@ -369,7 +375,7 @@ This fires up the pre-defined pipeline for creating translation packages.&lt;/p&
 
 &lt;p&gt;The converted, translated files will be in a folder called &lt;code&gt;done&lt;/code&gt;, on the same level als the &lt;code&gt;original&lt;/code&gt; and &lt;code&gt;work&lt;/code&gt; folders.&lt;/p&gt;
 
-&lt;h2 id=&#34;building-the-translated-project&#34;&gt;Building the translated project&lt;/h2&gt;
+&lt;h2 id=&#34;part-4-of-4-building-the-translated-project&#34;&gt;Part 4 of 4: Building the translated project&lt;/h2&gt;
 
 &lt;p&gt;Copy the translated files into your target-language project folder. Build the project. Done!&lt;/p&gt;
 
@@ -378,6 +384,8 @@ This fires up the pre-defined pipeline for creating translation packages.&lt;/p&
 
 How to handle updates after the bulk is published? Just send out entire project again with TM included? Could work I guess.
 --&gt;
+
+&lt;!-- Links and references --&gt;
 </description>
     </item>
     

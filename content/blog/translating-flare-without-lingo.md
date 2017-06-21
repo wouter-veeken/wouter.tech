@@ -73,7 +73,7 @@ Here's what you'll roughly be doing if you follow my instructions:
 
 This is just to provide an overview. It is not a table of contents.
 
-## <a name="PreparingYourProjectForTranslation"></a>Part 1/4: Preparing your project for translation
+## <a name="PreparingYourProjectForTranslation"></a>Part 1 of 4: Preparing your project for translation
 
 1. Open your project in Flare and select **Project > Export Project** to create a copy. Tips:
 
@@ -85,7 +85,7 @@ This is just to provide an overview. It is not a table of contents.
 2. Open the exported project and select **Project > Project Properties**.
 3. Under **Language**, select the target language. This should take care of any translatable labels in your project skins (e.g. search box place holder, topic toolbar buttons), provided that 1) Flare has default translations for the chosen language and 2) you have configured your skins to use the default project language.
 
-## Part 2/4: Preparing your translation package with Rainbow
+## Part 2 of 4: Preparing your translation package with Rainbow
 
 Rainbow is sort of a Swiss army knife for translators and translation project managers. It offers file conversion, terminology extraction, quality checks, pre-translation, and about a million other things I haven't even begun to explore myself. Unfortunately, it's also got a steep learning curve. There's a [wiki][rainbow-wiki] which is fairly comprehensive, but it often lacks detail in important areas, and some parts seem out of date. Thankfully, you've got this blog to help you!
 
@@ -257,7 +257,7 @@ If things went as they should, your output folder will contain these things:
 
 If you want, you can open your files in [OmegaT][omegat] to see how they look for the translator.
 
-## Part 3/4: Translating the project files
+## Part 3 of 4: Translating the project files
 
 ### Sending the package to your translator
 
@@ -286,7 +286,7 @@ If everything went as it should, the translator should send you back the same ba
 
 The converted, translated files will be in a folder called `done`, on the same level als the `original` and `work` folders.
 
-## Part 4/4: Building the translated project
+## Part 4 of 4: Building the translated project
 
 Copy the translated files into your target-language project folder. Build the project. Done!
 
