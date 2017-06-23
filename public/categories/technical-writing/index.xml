@@ -73,8 +73,11 @@
 
 &lt;p&gt;SSGs aren&amp;rsquo;t for everyone. A documentation toolchain involving a SSG requires a fairly technical person to maintain it. You should be comfortable with &lt;a href=&#34;https://en.wikipedia.org/wiki/Command-line_interface&#34;&gt;command line interfaces&lt;/a&gt;, HTML, CSS, and checking code out of and into repositories before you consider using a SSG. Prominent tech writer and blogger &lt;a href=&#34;http://idratherbewriting.com&#34;&gt;Tom Johnson&lt;/a&gt; also points out a few other &lt;a href=&#34;http://idratherbewriting.com/2017/06/02/when-docs-are-not-like-code/&#34;&gt;limits to the &amp;lsquo;Docs as Code&amp;rsquo; approach&lt;/a&gt;.&lt;/p&gt;
 
-&lt;p&gt;More about static site generators:
-* &lt;a href=&#34;https://www.staticgen.com/&#34;&gt;Top Open-Source Static Site Generators&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;More about static site generators:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.staticgen.com/&#34;&gt;Top Open-Source Static Site Generators&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
 
 &lt;h2 id=&#34;so-how-do-i-choose&#34;&gt;So, how do I choose?&lt;/h2&gt;
 

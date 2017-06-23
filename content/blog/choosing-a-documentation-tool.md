@@ -63,6 +63,7 @@ This approach offers much flexibility: you can choose your own text editor, your
 SSGs aren't for everyone. A documentation toolchain involving a SSG requires a fairly technical person to maintain it. You should be comfortable with [command line interfaces][cli], HTML, CSS, and checking code out of and into repositories before you consider using a SSG. Prominent tech writer and blogger [Tom Johnson][tomjohnson] also points out a few other [limits to the 'Docs as Code' approach][tomjohnson-blog].
 
 More about static site generators:
+
 * [Top Open-Source Static Site Generators][ssg]
 
 ## So, how do I choose?
