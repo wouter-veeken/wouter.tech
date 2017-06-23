@@ -1,0 +1,136 @@
++++
+date = "2017-06-23"
+title = "Choosing a documentation tool"
+description = "On choosing a tool for technical documentation."
+draft = "false"
+highlight = "true"
+tags = [
+    "documentation",    
+    "tools"
+]
+categories = [
+    "technical writing",
+    ""
+]
++++
+
+<!-- This is a template file for blogs. Copy and replace frontmatter & content. -->
+
+**There's a question that often pops up in communities I'm a part of: "What tool should I use to write my technical documentation?". It's a valid question, but so is "What car should I buy?". There is no single right answer: any number of cars could be right for you, depending on your needs. Although the same is true for documentation tools, I'm going to give you part of an answer anyway.**
+
+While I'm not an authority, I've been a technical writer for several years and know the landscape fairly well. I have either worked with or tried most mainstream tools, both commercial and open-source, and have a good sense of their strengths and weaknesses. I'll share what I know, in the hopes that it helps you get started. [Let me know if it does!][email]
+
+Before we dive in, I should point out what I won't cover:
+
+* **Word processors (e.g. Microsoft Word):** Yes, you can write technical documentation in Word. Many people do. However, Word wasn't designed with technical writing in mind, and it shows as soon as you try to follow any kind of best practices for technical documentation. I wouldn't recommend using a standard word processor for anything beyond a short, one-off publication.
+* **Documentation generators (e.g. [Doxygen][doxygen], [Javadoc][javadoc]):** These are specifically for documenting software source code. What they do is go through your code and compile a document based on code patterns and comments. This helps other programmers quickly make sense of your code. [Learn more here.][docgenerators]
+
+## Tool categories
+
+Roughly, the tools available today fall into 3 categories: help authoring tools, wikis, and static site generators. Read on for an explanation of each one.
+
+### Help authoring tools
+##### E.g.: [MadCap Flare][flare], [Adobe RoboHelp][robohelp], [Paligo][paligo]
+
+These are aimed at professional (technical) writers. Help authoring tools (HAT) enable writers to manage virtually every aspect of producing the documentation themselves, from writing, to design, to publishing, to translation. This usually requires little knowledge of web design or coding. A HAT is therefore especially useful for a technical writer working by themselves or in a non-technical team.
+
+HATs are powerful, but take time to master. Don't expect to be up and running quickly. Also, they don't always lend themselves well to collaboration. Content tends to be isolated in the tool, which means getting contributions from non-writers requires either giving them access (and training), or setting up some sort of export/import process. This can make reviews and other cooperative tasks cumbersome.
+
+More about help authoring tools:
+
+* [Choosing a help authoring tool][choosing-a-hat]
+* [List of help authoring tools (Wikipedia)][hat-list]
+
+### Wiki platforms
+##### E.g.: [Confluence][confluence], [MindTouch][mindtouch], [Nuclino][nuclino]
+
+Wiki platforms (the most famous example being [Wikipedia][wikipedia]) are aimed at collaboration. They tend to focus on ease of use, removing as many barriers to contribution as possible. This makes them a quick way to get from nothing to something: it's a matter of a few clicks to create, review and publish a page of content. A wiki is great for teams without a dedicated writer who need an easy way to create content and aren't that worried about having a solid information architecture.
+
+Where wikis offer solutions, they unfortunately also create problems. They may be simple to use, but that's usually because their functionality is quite limited. And while they may enable everyone to contribute, they rarely allow a technical writer to effectively curate and structure content. Wikis also commonly suffer from [bystander effect][bystander-effect]: when everyone can create and update content, almost no one does. In my experience, wikis are more useful for internal knowledge sharing than for external publishing.
+
+More about wikis:
+
+* [Wiki Choice Wizard][wiki-choice-wizard]
+* [List of wiki software (Wikipedia)][wiki-list]
+
+### Static site generators
+##### E.g.: [Jekyll][jekyll], [Sphinx][sphinx], [Asciidoctor][asciidoctor]
+
+This is the 'techy' category. [Static site generators][ssg] (SSG) are often associated with the [Docs as Code movement][docs-as-code]. In a typical scenario, technical writers produce content in a lightweight markup language like [Markdown][markdown] or [reStructuredText][restructuredtext], and store it in a source code repository like [Git][git] or [Subversion][svn]. The SSG turns this content into a set of static HTML files, which are then uploaded to a website. (You're looking at an example right now: this website was generated by [Hugo][hugo]!)
+
+This approach offers much flexibility: you can choose your own text editor, your own markup language (provided your SSG supports it), your own source control environment, your own hosting solution, etc. It's also especially suited to software documentation: the content format is familiar to programmers, which encourages contributions, and most SSGs offer software-specific features, such as support for code snippets and UML diagrams. Last but not least, many popular SSGs are [open-source][open-source], i.e. free.
+
+SSGs aren't for everyone. A documentation toolchain involving a SSG requires a fairly technical person to maintain it. You should be comfortable with [command line interfaces][cli], HTML, CSS, and checking code out of and into repositories before you consider using a SSG. Prominent tech writer and blogger [Tom Johnson][tomjohnson] also points out a few other [limits to the 'Docs as Code' approach][tomjohnson-blog].
+
+More about static site generators:
+* [Top Open-Source Static Site Generators][ssg]
+
+## So, how do I choose?
+
+The above should give you an idea of where to start. Unfortunately, that's about as far as I can take you. The rest comes down to the unique characteristics of your documentation project. I recommend you write down all your must-haves and nice-to-haves in a list, and use that list to evaluate each tool.
+
+Of course, some factors are more decisive than others. Here are a few things I have found can really make or break the suitability of a tool.
+
+### Target audience
+
+Who is going to read your documentation? And at least as importantly: who's going to write it? The easier you make things for both sides, the better the result. You should know when, where and how your content is going to be consumed. If you're documenting a complicated piece of software, [context-sensitive help][csh] might be a must-have. That's going to eliminate some options right away. If your reviewers are always overworked, ensure they don't need to jump through hoops to comment on your drafts.
+
+### Print output
+
+Depending on the industry you're in, print output can be anything from the norm to 'not done'. If you do need to publish in print, there are all kinds of special considerations that require specialized tools. What's more, you might need to publish the same documentation in both print and digital form. Since you probably don't want to write everything twice, you'll need a tool that can create multiple outputs from the same source. Not all tools can do this (although most help authoring tools can).
+
+### Translation/localization
+
+Translation can ruin everything. Dramatic, I know, but it's true – take it from a former professional translator. If you already know your documentation needs to be translated at some point, investigate your options in the earliest stage possible. Don't put it on the list of bridges to cross when you get there, because you'll regret it. Make sure you choose a tool that offers either:
+
+* effective built-in translation features, such as easy export/import, in-context translation and workflow management, or;
+* a solid integration with a good [CAT Tool][cat-tool], like [SDL Trados][trados] or [MemoQ][memoq].
+
+### DITA
+
+[Darwin Information Typing Architecture][dita] (DITA) is a type of XML for technical writing. If you need to write in DITA (and the choice may not be up to you), there are only a few tools you can use. Some popular ones are [Oxygen][oxygen] and [XMetal][xmetal] for writing, and [DITAToo][ditatoo] for source control.
+
+## Leave a comment!
+
+Do you have a question, comment or suggestion? Please leave a comment below!
+
+<!-- Links and references -->
+
+[flare]:http://www.madcapsoftware.com/products/flare
+[robohelp]:http://www.adobe.com/products/robohelp.html
+[paligo]:https://paligo.net/
+[confluence]:https://www.atlassian.com/software/confluence
+[nuclino]:https://www.nuclino.com/
+[mindtouch]:https://mindtouch.com/
+[jekyll]:https://jekyllrb.com/
+[sphinx]:http://www.sphinx-doc.org/en/stable/
+[asciidoctor]:http://asciidoctor.org/
+[markdown]:https://en.wikipedia.org/wiki/Markdown
+[restructuredtext]:http://www.sphinx-doc.org/en/stable/rest.html
+[doxygen]:http://www.stack.nl/~dimitri/doxygen/
+[javadoc]:http://www.oracle.com/technetwork/java/javase/documentation/index-jsp-135444.html
+[wikipedia]:https://www.wikipedia.org/
+[bystander-effect]:https://en.wikipedia.org/wiki/Bystander_effect
+[git]:https://try.github.io/
+[svn]:https://deveo.com/svn-tutorial/
+[docs-as-code]:http://www.writethedocs.org/guide/docs-as-code/
+[tomjohnson]:http://idratherbewriting.com
+[tomjohnson-blog]:http://idratherbewriting.com/2017/06/02/when-docs-are-not-like-code/
+[cli]:https://en.wikipedia.org/wiki/Command-line_interface
+[ssg]:https://www.staticgen.com/
+[email]:mailto:me@wouter.tech
+[docgenerators]:https://en.wikipedia.org/wiki/Documentation_generator
+[csh]:https://en.wikipedia.org/wiki/Context-sensitive_help
+[dita]:http://www.xmlmind.com/tutorials/DITA/
+[oxygen]:https://www.oxygenxml.com/
+[xmetal]:http://xmetal.com/
+[ditatoo]:http://ditatoo.com/
+[cat-tool]:https://en.wikipedia.org/wiki/Computer-assisted_translation
+[trados]:http://www.sdltrados.com/
+[memoq]:https://www.memoq.com/en/
+[hugo]:https://gohugo.io/
+[hat-list]:https://en.wikipedia.org/wiki/List_of_help_authoring_tools
+[wiki-list]:https://en.wikipedia.org/wiki/List_of_wiki_software
+[open-source]:https://en.wikipedia.org/wiki/Open-source_software
+[choosing-a-hat]:https://www.indoition.com/online-help-authoring-tool-choosing.htm
+[wiki-choice-wizard]:http://www.wikimatrix.org/wizard.php
