@@ -1,0 +1,32 @@
+<div class="social social-alt">
+		<div>
+			<img class="img-circle small-avatar" src="{{ .Site.BaseURL }}img/{{ .Site.Params.avatar }}" alt="Responsive image">
+		</div>
+		<div class="block">
+			<p class="small">{{ .Site.Params.author }}<br/>
+			{{ .Site.Params.description }}</p>
+		</div>
+		<div>
+			<h5>
+		    {{ if .Site.Social.Github }}
+			  <a href="http://github.com/{{ .Site.Social.Github }}"><i class="fa fa-github"></i></a>
+		    {{ end }}
+
+		    {{ if .Site.Social.Email }}
+			  <a href="mailto:{{ .Site.Social.Email }}"><i class="fa fa-envelope"></i></a>
+		    {{ end }}
+
+		    {{ if .Site.Social.Twitter }}
+			  <a href="http://twitter.com/{{ .Site.Social.Twitter }}"><i class="fa fa-twitter"></i></a>
+		    {{ end }}
+
+		    {{ if .Site.Social.LinkedIn }}
+			  <a href="http://linkedin.com/in/{{ .Site.Social.LinkedIn }}"><i class="fa fa-linkedin"></i></a>
+		    {{ end }}
+
+		    {{ if .Site.Social.Stackoverflow }}
+			  <a href="http://stackoverflow.com/{{ .Site.Social.Stackoverflow }}"><i class="fa fa-stack-overflow"></i></a>
+		    {{ end }}
+			</h5>
+		</div>
+</div>

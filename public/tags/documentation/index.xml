@@ -35,7 +35,7 @@
 
 &lt;h3 id=&#34;help-authoring-tools&#34;&gt;Help authoring tools&lt;/h3&gt;
 
-&lt;h5 id=&#34;e-g-madcap-flare-flare-adobe-robohelp-robohelp-paligo-paligo&#34;&gt;E.g.: &lt;a href=&#34;http://www.madcapsoftware.com/products/flare&#34;&gt;MadCap Flare&lt;/a&gt;, &lt;a href=&#34;http://www.adobe.com/products/robohelp.html&#34;&gt;Adobe RoboHelp&lt;/a&gt;, &lt;a href=&#34;https://paligo.net/&#34;&gt;Paligo&lt;/a&gt;&lt;/h5&gt;
+&lt;h5 id=&#34;e-g-madcap-flare-flare-adobe-robohelp-robohelp&#34;&gt;E.g.: &lt;a href=&#34;http://www.madcapsoftware.com/products/flare&#34;&gt;MadCap Flare&lt;/a&gt;, &lt;a href=&#34;http://www.adobe.com/products/robohelp.html&#34;&gt;Adobe RoboHelp&lt;/a&gt;&lt;/h5&gt;
 
 &lt;p&gt;These are aimed at professional (technical) writers. Help authoring tools (HAT) enable writers to manage virtually every aspect of producing the documentation themselves, from writing, to design, to publishing, to translation. This usually requires little knowledge of web design or coding. A HAT is therefore especially useful for a technical writer working by themselves or in a non-technical team.&lt;/p&gt;
 
@@ -50,7 +50,7 @@
 
 &lt;h3 id=&#34;wiki-platforms&#34;&gt;Wiki platforms&lt;/h3&gt;
 
-&lt;h5 id=&#34;e-g-confluence-confluence-mindtouch-mindtouch-nuclino-nuclino&#34;&gt;E.g.: &lt;a href=&#34;https://www.atlassian.com/software/confluence&#34;&gt;Confluence&lt;/a&gt;, &lt;a href=&#34;https://mindtouch.com/&#34;&gt;MindTouch&lt;/a&gt;, &lt;a href=&#34;https://www.nuclino.com/&#34;&gt;Nuclino&lt;/a&gt;&lt;/h5&gt;
+&lt;h5 id=&#34;e-g-confluence-confluence-mindtouch-mindtouch-mediawiki-mediawiki&#34;&gt;E.g.: &lt;a href=&#34;https://www.atlassian.com/software/confluence&#34;&gt;Confluence&lt;/a&gt;, &lt;a href=&#34;https://mindtouch.com/&#34;&gt;MindTouch&lt;/a&gt;, &lt;a href=&#34;https://www.mediawiki.org/wiki/MediaWiki&#34;&gt;MediaWiki&lt;/a&gt;&lt;/h5&gt;
 
 &lt;p&gt;Wiki platforms (the most famous example being &lt;a href=&#34;https://www.wikipedia.org/&#34;&gt;Wikipedia&lt;/a&gt;) are aimed at collaboration. They tend to focus on ease of use, removing as many barriers to contribution as possible. This makes them a quick way to get from nothing to something: it&amp;rsquo;s a matter of a few clicks to create, review and publish a page of content. A wiki is great for teams without a dedicated writer who need an easy way to create content and aren&amp;rsquo;t that worried about having a solid information architecture.&lt;/p&gt;
 
@@ -77,6 +77,24 @@
 
 &lt;ul&gt;
 &lt;li&gt;&lt;a href=&#34;https://www.staticgen.com/&#34;&gt;Top Open-Source Static Site Generators&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&#34;saas-hosted-solutions&#34;&gt;SaaS/hosted solutions&lt;/h3&gt;
+
+&lt;h5 id=&#34;e-g-paligo-paligo-corilla-corilla-readthedocs-readthedocs&#34;&gt;E.g.: &lt;a href=&#34;https://paligo.net/&#34;&gt;Paligo&lt;/a&gt;, &lt;a href=&#34;https://corilla.com/&#34;&gt;Corilla&lt;/a&gt;, &lt;a href=&#34;https://readthedocs.org/&#34;&gt;ReadTheDocs&lt;/a&gt;&lt;/h5&gt;
+
+&lt;p&gt;SaaS (&lt;a href=&#34;https://en.wikipedia.org/wiki/Software_as_a_service&#34;&gt;Software as a Service&lt;/a&gt;) is a licensing model under which you pay a periodic subscription fee in return for access to a piece of software, as well as support and service from the publisher. The software often runs in your browser, which means you don&amp;rsquo;t need to install, host or serve anything yourself. It&amp;rsquo;s like renting a house rather than buying it.&lt;/p&gt;
+
+&lt;p&gt;When you apply the SaaS model to documentation software, what you get is a fully hosted, scaleable solution for authoring, reviewing, and publishing. This is obviously an attractive option for organizations that don&amp;rsquo;t have the resources to set up and maintain an entire toolchain themselves. They simply pay the monthly fee, and the publisher takes care of everything for them. This type of software is also sometimes called PaaS, or Platform as a Service.&lt;/p&gt;
+
+&lt;p&gt;The other side of the SaaS/PaaS coin is that it may be difficult (if not impossible) to migrate your content to another solution if you ever need to. Also, most of the newer SaaS tools seem aimed towards software developers and other non-writers. They appear to trade sophistication for ease of use, lacking many of the essential features a professional writer has come to expect. Still, a SaaS tool could be just the ticket for a modestly-sized development team with minimal documentation needs.&lt;/p&gt;
+
+&lt;p&gt;More SaaS tools:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://readme.io/&#34;&gt;Readme.io&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.zendesk.com/guide/&#34;&gt;Zendesk Guide&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.nuclino.com/&#34;&gt;Nuclino&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;h2 id=&#34;so-how-do-i-choose&#34;&gt;So, how do I choose?&lt;/h2&gt;

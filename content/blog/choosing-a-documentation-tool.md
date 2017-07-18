@@ -30,7 +30,7 @@ Before we dive in, I should point out what I won't cover:
 Roughly, the tools available today fall into 3 categories: help authoring tools, wikis, and static site generators. Read on for an explanation of each one.
 
 ### Help authoring tools
-##### E.g.: [MadCap Flare][flare], [Adobe RoboHelp][robohelp], [Paligo][paligo]
+##### E.g.: [MadCap Flare][flare], [Adobe RoboHelp][robohelp]
 
 These are aimed at professional (technical) writers. Help authoring tools (HAT) enable writers to manage virtually every aspect of producing the documentation themselves, from writing, to design, to publishing, to translation. This usually requires little knowledge of web design or coding. A HAT is therefore especially useful for a technical writer working by themselves or in a non-technical team.
 
@@ -42,7 +42,7 @@ More about help authoring tools:
 * [List of help authoring tools (Wikipedia)][hat-list]
 
 ### Wiki platforms
-##### E.g.: [Confluence][confluence], [MindTouch][mindtouch], [Nuclino][nuclino]
+##### E.g.: [Confluence][confluence], [MindTouch][mindtouch], [MediaWiki][mediawiki]
 
 Wiki platforms (the most famous example being [Wikipedia][wikipedia]) are aimed at collaboration. They tend to focus on ease of use, removing as many barriers to contribution as possible. This makes them a quick way to get from nothing to something: it's a matter of a few clicks to create, review and publish a page of content. A wiki is great for teams without a dedicated writer who need an easy way to create content and aren't that worried about having a solid information architecture.
 
@@ -52,6 +52,7 @@ More about wikis:
 
 * [Wiki Choice Wizard][wiki-choice-wizard]
 * [List of wiki software (Wikipedia)][wiki-list]
+
 
 ### Static site generators
 ##### E.g.: [Jekyll][jekyll], [Sphinx][sphinx], [Asciidoctor][asciidoctor]
@@ -65,6 +66,21 @@ SSGs aren't for everyone. A documentation toolchain involving a SSG requires a f
 More about static site generators:
 
 * [Top Open-Source Static Site Generators][ssg]
+
+### SaaS/hosted solutions
+##### E.g.: [Paligo][paligo], [Corilla][corilla], [ReadTheDocs][readthedocs]
+
+SaaS ([Software as a Service][saas]) is a licensing model under which you pay a periodic subscription fee in return for access to a piece of software, as well as support and service from the publisher. The software often runs in your browser, which means you don't need to install, host or serve anything yourself. It's like renting a house rather than buying it.
+
+When you apply the SaaS model to documentation software, what you get is a fully hosted, scaleable solution for authoring, reviewing, and publishing. This is obviously an attractive option for organizations that don't have the resources to set up and maintain an entire toolchain themselves. They simply pay the monthly fee, and the publisher takes care of everything for them. This type of software is also sometimes called PaaS, or Platform as a Service.
+
+The other side of the SaaS/PaaS coin is that it may be difficult (if not impossible) to migrate your content to another solution if you ever need to. Also, most of the newer SaaS tools seem aimed towards software developers and other non-writers. They appear to trade sophistication for ease of use, lacking many of the essential features a professional writer has come to expect. Still, a SaaS tool could be just the ticket for a modestly-sized development team with minimal documentation needs.
+
+More SaaS tools:
+
+* [Readme.io][readme.io]
+* [Zendesk Guide][zendesk-guide]
+* [Nuclino][nuclino]
 
 ## So, how do I choose?
 
@@ -135,3 +151,9 @@ Do you have a question, comment or suggestion? Please leave a comment below!
 [open-source]:https://en.wikipedia.org/wiki/Open-source_software
 [choosing-a-hat]:https://www.indoition.com/online-help-authoring-tool-choosing.htm
 [wiki-choice-wizard]:http://www.wikimatrix.org/wizard.php
+[corilla]:https://corilla.com/
+[readthedocs]:https://readthedocs.org/
+[saas]:https://en.wikipedia.org/wiki/Software_as_a_service
+[readme.io]:http://readme.io/
+[zendesk-guide]:https://www.zendesk.com/guide/
+[mediawiki]:https://www.mediawiki.org/wiki/MediaWiki
