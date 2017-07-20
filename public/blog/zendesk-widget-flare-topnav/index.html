@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="author" content="map[]" />
+    <meta name="description" content="Technical writer from Amsterdam, the Netherlands">
+    <link rel="shortcut icon" type="image/x-icon" href="http://wouter.tech/img/favicon.ico">
+    <title>Embedding a Zendesk widget in your MadCap Flare top navigation output</title>
+    <meta name="generator" content="Hugo 0.17" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="http://wouter.tech/css/main.css" /><link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.7.0/styles/tomorrow.min.css">
+    
+    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" />
+    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:200,400,200bold,400old" />
+    
+    <!--[if lt IE 9]>
+			<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+			<script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+		<![endif]-->
+
+    
+<script>
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-96197135-1', 'auto');
+ga('send', 'pageview');
+</script>
+
+  </head>
+
+  <body>
+    <div id="wrap">
+
+      
+      <nav class="navbar navbar-default">
+  <div class="container">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="http://wouter.tech/"><i class="fa fa-home"></i></a>
+    </div>
+    <div id="navbar">
+      <ul class="nav navbar-nav navbar-right">
+      
+        
+        <li><a href="/blog/">BLOG</a></li>
+        
+        <li><a href="/projects/">PROJECTS</a></li>
+        
+      
+      </ul>
+    </div>
+  </div>
+</nav>
+
+      
+      <div class="container">
+        <div class="blog-post">
+          <h3>
+            <strong><a href="http://wouter.tech/blog/zendesk-widget-flare-topnav/">Embedding a Zendesk widget in your MadCap Flare top navigation output</a></strong>
+          </h3>
+        </div>
+        <div class="blog-title">
+          <h4>
+          July 20, 2017
+            &nbsp;&nbsp;
+            
+            <span class="label label-success">madcap</span>
+            
+            <span class="label label-success">flare</span>
+            
+            <span class="label label-success">zendesk</span>
+            
+            <span class="label label-success">google analytics</span>
+            
+            <span class="label label-success">javascript</span>
+            
+          </h4>
+        </div>
+        <div class="panel panel-default">
+          <div class="panel-body">
+            <div class="blogpost">
+              
+
+<!-- This is a template file for blogs. Copy and replace frontmatter & content. -->
+
+<p><strong>If your organization is using <a href="http://www.madcapsoftware.com/products/flare/">MadCap Flare</a>&rsquo;s top navigation output for user documentation, and <a href="https://www.zendesk.com/">Zendesk</a> for technical support, you&rsquo;ll want to add the <a href="https://support.zendesk.com/hc/en-us/articles/203908456-Using-Web-Widget-to-embed-customer-service-in-your-website#topic-1">Zendesk widget</a> to your docs so that users can request support if they get stuck. This post explains how to do that, as well as add some useful customizations.</strong></p>
+
+<h3 id="before-you-start">Before you start</h3>
+
+<p>Although you&rsquo;ll be working with several pieces of JavaScript code, you don&rsquo;t actually need to know anything about writing JavaScript. However, you should be comfortable with writing basic HTML in a text editor.</p>
+
+<h3 id="part-1-embedding-the-zendesk-widget-in-your-docs">Part 1: Embedding the Zendesk widget in your docs</h3>
+
+<p>I won&rsquo;t go into detail about how to prepare and set up the widget itself – Zendesk does an adequate job of <a href="https://support.zendesk.com/hc/en-us/articles/203908456-Using-Web-Widget-to-embed-customer-service-in-your-website#topic-1">explaining that themselves</a>. You should start with that and return here after you&rsquo;ve <a href="https://support.zendesk.com/hc/en-us/articles/115009522787">generated the JavaScript code for your widget</a>.</p>
+
+<p>Once you have your code, you need to embed it in your Flare master pages. Here&rsquo;s how to do that:</p>
+
+<ol>
+<li>In your Flare project, create a new folder with this path: <code>Content\Resources\Scripts</code>.</li>
+<li>In this folder, create a new text file called <code>zendesk.js</code>.</li>
+<li>Copy and paste the JavaScript code into the file and save it.</li>
+
+<li><p>Open your main master page file in a text editor and, in the <code>&lt;head&gt;</code> section, add this line:</p>
+
+<pre><code class="language-javascript">&lt;script src=&quot;../Scripts/zendesk.js&quot;&gt;&lt;/script&gt;
+</code></pre></li>
+
+<li><p>Repeat for any additional master pages in which you want to embed the widget.</p></li>
+</ol>
+
+<p>When you now build the project, every page using the master page in which you included the script will contain a <strong>[? Help]</strong> button in the bottom-right corner. Clicking the button brings up the widget where readers can submit tickets (and do anything else you configured the widget to allow).</p>
+
+<h3 id="what-s-next">What&rsquo;s next?</h3>
+
+<p>If your only goal was to enable your readers to create Zendesk tickets from your docs, then: congratulations, you&rsquo;re finished! The following two parts are completely optional. <a href="#Part3">Part 3</a> is especially recommended if you&rsquo;re working with Google Analytics.</p>
+
+<h3 id="part-2-replacing-the-default-widget-button">Part 2: Replacing the default widget button</h3>
+
+<p>If you&rsquo;re not happy to use Zendesk&rsquo;s default, floating, locked-position button, you can create your own button instead.</p>
+
+<ol>
+<li><p>Hide the original button by adding these lines to your project stylesheet:</p>
+
+<pre><code class="language-CSS">.zEWidget-launcher
+{
+     display: none;
+}
+</code></pre>
+
+<p>This will hide the <code>&lt;iframe&gt;</code> that contains the button, but not the widget itself.</p></li>
+
+<li><p>Open your master page in a text editor.</p></li>
+
+<li><p>Add a new HTML element that will serve as the widget button. Choose an element whose appearance you can easily control. An obvious choice might be a <code>&lt;button&gt;</code> element, but I use a <code>&lt;span&gt;</code>. A <code>&lt;div&gt;</code> would also work fine.</p></li>
+
+<li><p>Add this property to your element: <code>onclick=&quot;zE.activate()&quot;</code>. Example:</p>
+
+<pre><code class="language-HTML">&lt;span onclick=&quot;zE.activate()&quot;&gt;Button text&lt;/span&gt;
+</code></pre>
+
+<p><strong>NOTE:</strong> <code>zE.activate()</code> is the JavaScript function that causes the widget&rsquo;s ticket form to appear.</p></li>
+
+<li><p>Add the same element to any additional master pages on which the button should appear. (If you have a lot of master pages, consider using a snippet.)</p></li>
+</ol>
+
+<p>When you build the project, the original button will be gone. Click on your new custom button to activate the Zendesk widget.</p>
+
+<h3 id="a-name-part3-a-part-3-sending-an-event-to-google-analytics-for-every-ticket"><a name="Part3"></a> Part 3: Sending an event to Google Analytics for every ticket</h3>
+
+<p>In the body text of each Zendesk ticket created through the widget, you&rsquo;ll see the URL of the page on which it was submitted. This is very helpful, but if you&rsquo;re <a href="https://mike.kelley.consulting/blog/how-to-capture-and-track-user-search-terms-in-google-analytics-with-madcap-flare-html-output">using Google Analytics to track the behavior of your readers</a>, you&rsquo;ll also want to see where your tickets are coming from directly in GA. You can achieve this by sending an event to GA whenever someone clicks the <strong>Submit</strong> button in the widget.</p>
+
+<ol>
+<li>Open the <code>zendesk.js</code> file you created earlier.</li>
+
+<li><p>Add this code at the end:</p>
+
+<pre><code class="language-javascript">$(document).ready(function() {
+  setTimeout(function() {
+      var iframe=$('iframe#webWidget');
+      $('footer div.ButtonGroup input', iframe.contents()).on('mousedown', function() { ga('send', 'event', 'Zendesk', 'submit'); })
+  }, 5000);
+});
+</code></pre>
+
+<p><strong>NOTE:</strong>  See <a href="#AboutTheCode">About the code</a> for an explanation.</p></li>
+
+<li><p>Save the file.</p></li>
+</ol>
+
+<p>After you build and publish your project, the event messages will appear in Google Analytics under <strong>Behavior &gt; Events</strong>. In case it wasn&rsquo;t obvious, the code will only work if you have already implemented Google Analytics in your Flare project. Refer to <a href="https://mike.kelley.consulting/blog/how-to-capture-and-track-user-search-terms-in-google-analytics-with-madcap-flare-html-output">the aforementioned blog post by Mike Kelley</a> to see how to do that.</p>
+
+<h4 id="a-name-aboutthecode-a-about-the-code"><a name="AboutTheCode"></a> About the code</h4>
+
+<p>The code you&rsquo;re looking at (graciously provided by <a href="https://writethedocs.slack.com/team/tealium.justin">@tealium.justin</a> from the wonderful <a href="http://www.writethedocs.org/">WriteTheDocs</a> community) is actually <a href="https://jquery.com/">JQuery</a> code, rather than pure JavaScript. Normally, you wouldn&rsquo;t be able to use JQuery unless you included the JQuery library in your project first. But because Flare&rsquo;s top navigation output relies on JQuery for its interactive elements, it&rsquo;s included by default. Handy!</p>
+
+<p>The code runs as soon as the page loads, but has a built-in delay of 5000 milliseconds. This gives the widget time to load. If you run the code before the widget loads, it won&rsquo;t work, because it&rsquo;ll be referring to HTML elements that don&rsquo;t exist yet. Feel free to adjust the delay if 5000 ms seems long to you – just change the value at the end of the code. But bear in mind that computers and connections can be slow, and it takes at least 5 seconds to fill in a ticket anyway, so&hellip;</p>
+
+<p>This is the part of the code where the magic happens:</p>
+
+<pre><code class="language-javascript">ga('send', 'event', 'Zendesk', 'submit');
+</code></pre>
+
+<p>I&rsquo;m sure you can get the gist of that line by just reading it, but make sure you check out <a href="https://developers.google.com/analytics/devguides/collection/analyticsjs/events">Google&rsquo;s breakdown of event tracking in Google Analytics</a>. The information there will also tell you how to adjust or add event parameters if you want to.</p>
+
+<p>The remaining lines are for making sure the event is fired on the correct HTML element, i.e.:</p>
+
+<pre><code class="language-html">&lt;iframe id=&quot;webWidget&quot;&gt;  
+  &lt;footer&gt;
+    &lt;div class=&quot;ButtonGroup&quot;&gt;      
+      &lt;input&gt;&lt;!-- This one! --&gt;&lt;/input&gt;      
+    &lt;/div&gt;
+  &lt;/footer&gt;
+&lt;/iframe&gt;
+</code></pre>
+
+<h2 id="drop-me-a-line">Drop me a line</h2>
+
+<p>I hope you find the above helpful. If you have a question, comment or suggestion, feel free to leave a comment below.</p>
+
+<!-- Links and references -->
+
+              <hr>
+              <div class="related-posts">
+                <h5>Related Posts</h5>
+                
+                  <div class="row">
+                    <div class="col-sm-4 col-md-4 col-lg-4">
+                      <h6 style="text-align: right">
+                        April 8, 2017
+                      </h6>
+                    </div>
+                    <div class="col-sm-8 col-md-8 col-lg-8">
+                      <h6 style="text-align: left">
+                        <strong><a href="/blog/customizing-printed-web-output-flare/">Customizing the printed version of your Flare web output</a></strong>
+                      </h6>
+                    </div>
+                  </div>
+                
+                  <div class="row">
+                    <div class="col-sm-4 col-md-4 col-lg-4">
+                      <h6 style="text-align: right">
+                        March 24, 2017
+                      </h6>
+                    </div>
+                    <div class="col-sm-8 col-md-8 col-lg-8">
+                      <h6 style="text-align: left">
+                        <strong><a href="/blog/translating-flare-without-lingo/">Translating a MadCap Flare project without Lingo</a></strong>
+                      </h6>
+                    </div>
+                  </div>
+                
+              </div>
+            </div>
+          </div>
+          <hr>
+        <div class="disqus">
+  <div id="disqus_thread"></div>
+  <script type="text/javascript">
+
+    (function() {
+      
+      
+      if (window.location.hostname == "localhost")
+        return;
+
+      var disqus_shortname = 'wouter-tech';
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+  </script>
+  <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+  <a href="http://disqus.com/" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+</div>
+        </div>
+      
+      </div>
+    </div>
+
+    
+    <footer>
+  <div id="footer">
+    <div class="container">
+      <p class="text-muted">&copy; All rights reserved. Powered by <a href="https://gohugo.io/">Hugo</a> and
+      <a href="http://www.github.com/sumaxime/hugo-sustain/">sustain</a> with ♥</p>
+    </div>
+  </div>
+</footer>
+<div class="footer"></div>
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+<script src="http://wouter.tech/js/docs.min.js"></script>
+<script src="http://wouter.tech/js/main.js"></script>
+
+<script src="http://wouter.tech/js/ie10-viewport-bug-workaround.js"></script><!-- Syntax highlighting -->
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.7.0/highlight.min.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+
+
+    
+  </body>
+</html>

@@ -27,7 +27,7 @@ Before we dive in, I should point out what I won't cover:
 
 ## Tool categories
 
-Roughly, the tools available today fall into 3 categories: help authoring tools, wikis, and static site generators. Read on for an explanation of each one.
+Roughly, the tools available today fall into 4 categories: help authoring tools, wikis, static site generators, and SaaS solutions. Read on for an explanation of each one.
 
 ### Help authoring tools
 ##### E.g.: [MadCap Flare][flare], [Adobe RoboHelp][robohelp]

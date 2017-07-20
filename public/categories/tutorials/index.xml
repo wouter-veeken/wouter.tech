@@ -9,6 +9,134 @@
     <atom:link href="http://wouter.tech/categories/tutorials/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
+      <title>Embedding a Zendesk widget in your MadCap Flare top navigation output</title>
+      <link>http://wouter.tech/blog/zendesk-widget-flare-topnav/</link>
+      <pubDate>Thu, 20 Jul 2017 00:00:00 +0000</pubDate>
+      
+      <guid>http://wouter.tech/blog/zendesk-widget-flare-topnav/</guid>
+      <description>
+
+&lt;!-- This is a template file for blogs. Copy and replace frontmatter &amp; content. --&gt;
+
+&lt;p&gt;&lt;strong&gt;If your organization is using &lt;a href=&#34;http://www.madcapsoftware.com/products/flare/&#34;&gt;MadCap Flare&lt;/a&gt;&amp;rsquo;s top navigation output for user documentation, and &lt;a href=&#34;https://www.zendesk.com/&#34;&gt;Zendesk&lt;/a&gt; for technical support, you&amp;rsquo;ll want to add the &lt;a href=&#34;https://support.zendesk.com/hc/en-us/articles/203908456-Using-Web-Widget-to-embed-customer-service-in-your-website#topic-1&#34;&gt;Zendesk widget&lt;/a&gt; to your docs so that users can request support if they get stuck. This post explains how to do that, as well as add some useful customizations.&lt;/strong&gt;&lt;/p&gt;
+
+&lt;h3 id=&#34;before-you-start&#34;&gt;Before you start&lt;/h3&gt;
+
+&lt;p&gt;Although you&amp;rsquo;ll be working with several pieces of JavaScript code, you don&amp;rsquo;t actually need to know anything about writing JavaScript. However, you should be comfortable with writing basic HTML in a text editor.&lt;/p&gt;
+
+&lt;h3 id=&#34;part-1-embedding-the-zendesk-widget-in-your-docs&#34;&gt;Part 1: Embedding the Zendesk widget in your docs&lt;/h3&gt;
+
+&lt;p&gt;I won&amp;rsquo;t go into detail about how to prepare and set up the widget itself – Zendesk does an adequate job of &lt;a href=&#34;https://support.zendesk.com/hc/en-us/articles/203908456-Using-Web-Widget-to-embed-customer-service-in-your-website#topic-1&#34;&gt;explaining that themselves&lt;/a&gt;. You should start with that and return here after you&amp;rsquo;ve &lt;a href=&#34;https://support.zendesk.com/hc/en-us/articles/115009522787&#34;&gt;generated the JavaScript code for your widget&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;Once you have your code, you need to embed it in your Flare master pages. Here&amp;rsquo;s how to do that:&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;In your Flare project, create a new folder with this path: &lt;code&gt;Content\Resources\Scripts&lt;/code&gt;.&lt;/li&gt;
+&lt;li&gt;In this folder, create a new text file called &lt;code&gt;zendesk.js&lt;/code&gt;.&lt;/li&gt;
+&lt;li&gt;Copy and paste the JavaScript code into the file and save it.&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;Open your main master page file in a text editor and, in the &lt;code&gt;&amp;lt;head&amp;gt;&lt;/code&gt; section, add this line:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-javascript&#34;&gt;&amp;lt;script src=&amp;quot;../Scripts/zendesk.js&amp;quot;&amp;gt;&amp;lt;/script&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;Repeat for any additional master pages in which you want to embed the widget.&lt;/p&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;When you now build the project, every page using the master page in which you included the script will contain a &lt;strong&gt;[? Help]&lt;/strong&gt; button in the bottom-right corner. Clicking the button brings up the widget where readers can submit tickets (and do anything else you configured the widget to allow).&lt;/p&gt;
+
+&lt;h3 id=&#34;what-s-next&#34;&gt;What&amp;rsquo;s next?&lt;/h3&gt;
+
+&lt;p&gt;If your only goal was to enable your readers to create Zendesk tickets from your docs, then: congratulations, you&amp;rsquo;re finished! The following two parts are completely optional. &lt;a href=&#34;#Part3&#34;&gt;Part 3&lt;/a&gt; is especially recommended if you&amp;rsquo;re working with Google Analytics.&lt;/p&gt;
+
+&lt;h3 id=&#34;part-2-replacing-the-default-widget-button&#34;&gt;Part 2: Replacing the default widget button&lt;/h3&gt;
+
+&lt;p&gt;If you&amp;rsquo;re not happy to use Zendesk&amp;rsquo;s default, floating, locked-position button, you can create your own button instead.&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;&lt;p&gt;Hide the original button by adding these lines to your project stylesheet:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-CSS&#34;&gt;.zEWidget-launcher
+{
+     display: none;
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;This will hide the &lt;code&gt;&amp;lt;iframe&amp;gt;&lt;/code&gt; that contains the button, but not the widget itself.&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;Open your master page in a text editor.&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;Add a new HTML element that will serve as the widget button. Choose an element whose appearance you can easily control. An obvious choice might be a &lt;code&gt;&amp;lt;button&amp;gt;&lt;/code&gt; element, but I use a &lt;code&gt;&amp;lt;span&amp;gt;&lt;/code&gt;. A &lt;code&gt;&amp;lt;div&amp;gt;&lt;/code&gt; would also work fine.&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;Add this property to your element: &lt;code&gt;onclick=&amp;quot;zE.activate()&amp;quot;&lt;/code&gt;. Example:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-HTML&#34;&gt;&amp;lt;span onclick=&amp;quot;zE.activate()&amp;quot;&amp;gt;Button text&amp;lt;/span&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;strong&gt;NOTE:&lt;/strong&gt; &lt;code&gt;zE.activate()&lt;/code&gt; is the JavaScript function that causes the widget&amp;rsquo;s ticket form to appear.&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;Add the same element to any additional master pages on which the button should appear. (If you have a lot of master pages, consider using a snippet.)&lt;/p&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;When you build the project, the original button will be gone. Click on your new custom button to activate the Zendesk widget.&lt;/p&gt;
+
+&lt;h3 id=&#34;a-name-part3-a-part-3-sending-an-event-to-google-analytics-for-every-ticket&#34;&gt;&lt;a name=&#34;Part3&#34;&gt;&lt;/a&gt; Part 3: Sending an event to Google Analytics for every ticket&lt;/h3&gt;
+
+&lt;p&gt;In the body text of each Zendesk ticket created through the widget, you&amp;rsquo;ll see the URL of the page on which it was submitted. This is very helpful, but if you&amp;rsquo;re &lt;a href=&#34;https://mike.kelley.consulting/blog/how-to-capture-and-track-user-search-terms-in-google-analytics-with-madcap-flare-html-output&#34;&gt;using Google Analytics to track the behavior of your readers&lt;/a&gt;, you&amp;rsquo;ll also want to see where your tickets are coming from directly in GA. You can achieve this by sending an event to GA whenever someone clicks the &lt;strong&gt;Submit&lt;/strong&gt; button in the widget.&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;Open the &lt;code&gt;zendesk.js&lt;/code&gt; file you created earlier.&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;Add this code at the end:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-javascript&#34;&gt;$(document).ready(function() {
+  setTimeout(function() {
+      var iframe=$(&#39;iframe#webWidget&#39;);
+      $(&#39;footer div.ButtonGroup input&#39;, iframe.contents()).on(&#39;mousedown&#39;, function() { ga(&#39;send&#39;, &#39;event&#39;, &#39;Zendesk&#39;, &#39;submit&#39;); })
+  }, 5000);
+});
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;strong&gt;NOTE:&lt;/strong&gt;  See &lt;a href=&#34;#AboutTheCode&#34;&gt;About the code&lt;/a&gt; for an explanation.&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;Save the file.&lt;/p&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;After you build and publish your project, the event messages will appear in Google Analytics under &lt;strong&gt;Behavior &amp;gt; Events&lt;/strong&gt;. In case it wasn&amp;rsquo;t obvious, the code will only work if you have already implemented Google Analytics in your Flare project. Refer to &lt;a href=&#34;https://mike.kelley.consulting/blog/how-to-capture-and-track-user-search-terms-in-google-analytics-with-madcap-flare-html-output&#34;&gt;the aforementioned blog post by Mike Kelley&lt;/a&gt; to see how to do that.&lt;/p&gt;
+
+&lt;h4 id=&#34;a-name-aboutthecode-a-about-the-code&#34;&gt;&lt;a name=&#34;AboutTheCode&#34;&gt;&lt;/a&gt; About the code&lt;/h4&gt;
+
+&lt;p&gt;The code you&amp;rsquo;re looking at (graciously provided by &lt;a href=&#34;https://writethedocs.slack.com/team/tealium.justin&#34;&gt;@tealium.justin&lt;/a&gt; from the wonderful &lt;a href=&#34;http://www.writethedocs.org/&#34;&gt;WriteTheDocs&lt;/a&gt; community) is actually &lt;a href=&#34;https://jquery.com/&#34;&gt;JQuery&lt;/a&gt; code, rather than pure JavaScript. Normally, you wouldn&amp;rsquo;t be able to use JQuery unless you included the JQuery library in your project first. But because Flare&amp;rsquo;s top navigation output relies on JQuery for its interactive elements, it&amp;rsquo;s included by default. Handy!&lt;/p&gt;
+
+&lt;p&gt;The code runs as soon as the page loads, but has a built-in delay of 5000 milliseconds. This gives the widget time to load. If you run the code before the widget loads, it won&amp;rsquo;t work, because it&amp;rsquo;ll be referring to HTML elements that don&amp;rsquo;t exist yet. Feel free to adjust the delay if 5000 ms seems long to you – just change the value at the end of the code. But bear in mind that computers and connections can be slow, and it takes at least 5 seconds to fill in a ticket anyway, so&amp;hellip;&lt;/p&gt;
+
+&lt;p&gt;This is the part of the code where the magic happens:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-javascript&#34;&gt;ga(&#39;send&#39;, &#39;event&#39;, &#39;Zendesk&#39;, &#39;submit&#39;);
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;I&amp;rsquo;m sure you can get the gist of that line by just reading it, but make sure you check out &lt;a href=&#34;https://developers.google.com/analytics/devguides/collection/analyticsjs/events&#34;&gt;Google&amp;rsquo;s breakdown of event tracking in Google Analytics&lt;/a&gt;. The information there will also tell you how to adjust or add event parameters if you want to.&lt;/p&gt;
+
+&lt;p&gt;The remaining lines are for making sure the event is fired on the correct HTML element, i.e.:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-html&#34;&gt;&amp;lt;iframe id=&amp;quot;webWidget&amp;quot;&amp;gt;  
+  &amp;lt;footer&amp;gt;
+    &amp;lt;div class=&amp;quot;ButtonGroup&amp;quot;&amp;gt;      
+      &amp;lt;input&amp;gt;&amp;lt;!-- This one! --&amp;gt;&amp;lt;/input&amp;gt;      
+    &amp;lt;/div&amp;gt;
+  &amp;lt;/footer&amp;gt;
+&amp;lt;/iframe&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;drop-me-a-line&#34;&gt;Drop me a line&lt;/h2&gt;
+
+&lt;p&gt;I hope you find the above helpful. If you have a question, comment or suggestion, feel free to leave a comment below.&lt;/p&gt;
+
+&lt;!-- Links and references --&gt;
+</description>
+    </item>
+    
+    <item>
       <title>Translating a MadCap Flare project without Lingo</title>
       <link>http://wouter.tech/blog/translating-flare-without-lingo/</link>
       <pubDate>Fri, 24 Mar 2017 00:00:00 +0000</pubDate>
