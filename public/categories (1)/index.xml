@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Wouter Veeken – Technical writer, information architect, localization professional</title>
+    <link>http://wouter.tech/categories/index.xml</link>
+    <description>Recent content on Wouter Veeken – Technical writer, information architect, localization professional</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-US</language>
+    <atom:link href="http://wouter.tech/categories/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Choosing a documentation tool</title>
+      <link>http://wouter.tech/blog/choosing-a-documentation-tool/</link>
+      <pubDate>Fri, 23 Jun 2017 00:00:00 +0000</pubDate>
+      
+      <guid>http://wouter.tech/blog/choosing-a-documentation-tool/</guid>
+      <description>
+
+&lt;!-- This is a template file for blogs. Copy and replace frontmatter &amp; content. --&gt;
+
+&lt;p&gt;&lt;strong&gt;There&amp;rsquo;s a question that often pops up in communities I&amp;rsquo;m a part of: &amp;ldquo;What tool should I use to write my technical documentation?&amp;rdquo;. It&amp;rsquo;s a valid question, but so is &amp;ldquo;What car should I buy?&amp;rdquo;. There is no single right answer: any number of cars could be right for you, depending on your needs. Although the same is true for documentation tools, I&amp;rsquo;m going to give you part of an answer anyway.&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;While I&amp;rsquo;m not an authority, I&amp;rsquo;ve been a technical writer for several years and know the landscape fairly well. I have either worked with or tried most mainstream tools, both commercial and open-source, and have a good sense of their strengths and weaknesses. I&amp;rsquo;ll share what I know, in the hopes that it helps you get started. &lt;a href=&#34;mailto:me@wouter.tech&#34;&gt;Let me know if it does!&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Before we dive in, I should point out what I won&amp;rsquo;t cover:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Word processors (e.g. Microsoft Word):&lt;/strong&gt; Yes, you can write technical documentation in Word. Many people do. However, Word wasn&amp;rsquo;t designed with technical writing in mind, and it shows as soon as you try to follow any kind of best practices for technical documentation. I wouldn&amp;rsquo;t recommend using a standard word processor for anything beyond a short, one-off publication.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Documentation generators (e.g. &lt;a href=&#34;http://www.stack.nl/~dimitri/doxygen/&#34;&gt;Doxygen&lt;/a&gt;, &lt;a href=&#34;http://www.oracle.com/technetwork/java/javase/documentation/index-jsp-135444.html&#34;&gt;Javadoc&lt;/a&gt;):&lt;/strong&gt; These are specifically for documenting software source code. What they do is go through your code and compile a document based on code patterns and comments. This helps other programmers quickly make sense of your code. &lt;a href=&#34;https://en.wikipedia.org/wiki/Documentation_generator&#34;&gt;Learn more here.&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;tool-categories&#34;&gt;Tool categories&lt;/h2&gt;
+
+&lt;p&gt;Roughly, the tools available today fall into 4 categories: help authoring tools, wikis, static site generators, and SaaS solutions. Read on for an explanation of each one.&lt;/p&gt;
+
+&lt;h3 id=&#34;help-authoring-tools&#34;&gt;Help authoring tools&lt;/h3&gt;
+
+&lt;h5 id=&#34;e-g-madcap-flare-flare-adobe-robohelp-robohelp&#34;&gt;E.g.: &lt;a href=&#34;http://www.madcapsoftware.com/products/flare&#34;&gt;MadCap Flare&lt;/a&gt;, &lt;a href=&#34;http://www.adobe.com/products/robohelp.html&#34;&gt;Adobe RoboHelp&lt;/a&gt;&lt;/h5&gt;
+
+&lt;p&gt;These are aimed at professional (technical) writers. Help authoring tools (HAT) enable writers to manage virtually every aspect of producing the documentation themselves, from writing, to design, to publishing, to translation. This usually requires little knowledge of web design or coding. A HAT is therefore especially useful for a technical writer working by themselves or in a non-technical team.&lt;/p&gt;
+
+&lt;p&gt;HATs are powerful, but take time to master. Don&amp;rsquo;t expect to be up and running quickly. Also, they don&amp;rsquo;t always lend themselves well to collaboration. Content tends to be isolated in the tool, which means getting contributions from non-writers requires either giving them access (and training), or setting up some sort of export/import process. This can make reviews and other cooperative tasks cumbersome.&lt;/p&gt;
+
+&lt;p&gt;More about help authoring tools:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.indoition.com/online-help-authoring-tool-choosing.htm&#34;&gt;Choosing a help authoring tool&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://en.wikipedia.org/wiki/List_of_help_authoring_tools&#34;&gt;List of help authoring tools (Wikipedia)&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&#34;wiki-platforms&#34;&gt;Wiki platforms&lt;/h3&gt;
+
+&lt;h5 id=&#34;e-g-confluence-confluence-mindtouch-mindtouch-mediawiki-mediawiki&#34;&gt;E.g.: &lt;a href=&#34;https://www.atlassian.com/software/confluence&#34;&gt;Confluence&lt;/a&gt;, &lt;a href=&#34;https://mindtouch.com/&#34;&gt;MindTouch&lt;/a&gt;, &lt;a href=&#34;https://www.mediawiki.org/wiki/MediaWiki&#34;&gt;MediaWiki&lt;/a&gt;&lt;/h5&gt;
+
+&lt;p&gt;Wiki platforms (the most famous example being &lt;a href=&#34;https://www.wikipedia.org/&#34;&gt;Wikipedia&lt;/a&gt;) are aimed at collaboration. They tend to focus on ease of use, removing as many barriers to contribution as possible. This makes them a quick way to get from nothing to something: it&amp;rsquo;s a matter of a few clicks to create, review and publish a page of content. A wiki is great for teams without a dedicated writer who need an easy way to create content and aren&amp;rsquo;t that worried about having a solid information architecture.&lt;/p&gt;
+
+&lt;p&gt;Where wikis offer solutions, they unfortunately also create problems. They may be simple to use, but that&amp;rsquo;s usually because their functionality is quite limited. And while they may enable everyone to contribute, they rarely allow a technical writer to effectively curate and structure content. Wikis also commonly suffer from &lt;a href=&#34;https://en.wikipedia.org/wiki/Bystander_effect&#34;&gt;bystander effect&lt;/a&gt;: when everyone can create and update content, almost no one does. In my experience, wikis are more useful for internal knowledge sharing than for external publishing.&lt;/p&gt;
+
+&lt;p&gt;More about wikis:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://www.wikimatrix.org/wizard.php&#34;&gt;Wiki Choice Wizard&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://en.wikipedia.org/wiki/List_of_wiki_software&#34;&gt;List of wiki software (Wikipedia)&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&#34;static-site-generators&#34;&gt;Static site generators&lt;/h3&gt;
+
+&lt;h5 id=&#34;e-g-jekyll-jekyll-sphinx-sphinx-asciidoctor-asciidoctor&#34;&gt;E.g.: &lt;a href=&#34;https://jekyllrb.com/&#34;&gt;Jekyll&lt;/a&gt;, &lt;a href=&#34;http://www.sphinx-doc.org/en/stable/&#34;&gt;Sphinx&lt;/a&gt;, &lt;a href=&#34;http://asciidoctor.org/&#34;&gt;Asciidoctor&lt;/a&gt;&lt;/h5&gt;
+
+&lt;p&gt;This is the &amp;lsquo;techy&amp;rsquo; category. &lt;a href=&#34;https://www.staticgen.com/&#34;&gt;Static site generators&lt;/a&gt; (SSG) are often associated with the &lt;a href=&#34;http://www.writethedocs.org/guide/docs-as-code/&#34;&gt;Docs as Code movement&lt;/a&gt;. In a typical scenario, technical writers produce content in a lightweight markup language like &lt;a href=&#34;https://en.wikipedia.org/wiki/Markdown&#34;&gt;Markdown&lt;/a&gt; or &lt;a href=&#34;http://www.sphinx-doc.org/en/stable/rest.html&#34;&gt;reStructuredText&lt;/a&gt;, and store it in a source code repository like &lt;a href=&#34;https://try.github.io/&#34;&gt;Git&lt;/a&gt; or &lt;a href=&#34;https://deveo.com/svn-tutorial/&#34;&gt;Subversion&lt;/a&gt;. The SSG turns this content into a set of static HTML files, which are then uploaded to a website. (You&amp;rsquo;re looking at an example right now: this website was generated by &lt;a href=&#34;https://gohugo.io/&#34;&gt;Hugo&lt;/a&gt;!)&lt;/p&gt;
+
+&lt;p&gt;This approach offers much flexibility: you can choose your own text editor, your own markup language (provided your SSG supports it), your own source control environment, your own hosting solution, etc. It&amp;rsquo;s also especially suited to software documentation: the content format is familiar to programmers, which encourages contributions, and most SSGs offer software-specific features, such as support for code snippets and UML diagrams. Last but not least, many popular SSGs are &lt;a href=&#34;https://en.wikipedia.org/wiki/Open-source_software&#34;&gt;open-source&lt;/a&gt;, i.e. free.&lt;/p&gt;
+
+&lt;p&gt;SSGs aren&amp;rsquo;t for everyone. A documentation toolchain involving a SSG requires a fairly technical person to maintain it. You should be comfortable with &lt;a href=&#34;https://en.wikipedia.org/wiki/Command-line_interface&#34;&gt;command line interfaces&lt;/a&gt;, HTML, CSS, and checking code out of and into repositories before you consider using a SSG. Prominent tech writer and blogger &lt;a href=&#34;http://idratherbewriting.com&#34;&gt;Tom Johnson&lt;/a&gt; also points out a few other &lt;a href=&#34;http://idratherbewriting.com/2017/06/02/when-docs-are-not-like-code/&#34;&gt;limits to the &amp;lsquo;Docs as Code&amp;rsquo; approach&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;More about static site generators:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.staticgen.com/&#34;&gt;Top Open-Source Static Site Generators&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&#34;saas-hosted-solutions&#34;&gt;SaaS/hosted solutions&lt;/h3&gt;
+
+&lt;h5 id=&#34;e-g-paligo-paligo-corilla-corilla-readthedocs-readthedocs&#34;&gt;E.g.: &lt;a href=&#34;https://paligo.net/&#34;&gt;Paligo&lt;/a&gt;, &lt;a href=&#34;https://corilla.com/&#34;&gt;Corilla&lt;/a&gt;, &lt;a href=&#34;https://readthedocs.org/&#34;&gt;ReadTheDocs&lt;/a&gt;&lt;/h5&gt;
+
+&lt;p&gt;SaaS (&lt;a href=&#34;https://en.wikipedia.org/wiki/Software_as_a_service&#34;&gt;Software as a Service&lt;/a&gt;) is a licensing model under which you pay a periodic subscription fee in return for access to a piece of software, as well as support and service from the publisher. The software often runs in your browser, which means you don&amp;rsquo;t need to install, host or serve anything yourself. It&amp;rsquo;s like renting a house rather than buying it.&lt;/p&gt;
+
+&lt;p&gt;When you apply the SaaS model to documentation software, what you get is a fully hosted, scaleable solution for authoring, reviewing, and publishing. This is obviously an attractive option for organizations that don&amp;rsquo;t have the resources to set up and maintain an entire toolchain themselves. They simply pay the monthly fee, and the publisher takes care of everything for them. This type of software is also sometimes called PaaS, or Platform as a Service.&lt;/p&gt;
+
+&lt;p&gt;The other side of the SaaS/PaaS coin is that it may be difficult (if not impossible) to migrate your content to another solution if you ever need to. Also, most of the newer SaaS tools seem aimed towards software developers and other non-writers. They appear to trade sophistication for ease of use, lacking many of the essential features a professional writer has come to expect. Still, a SaaS tool could be just the ticket for a modestly-sized development team with minimal documentation needs.&lt;/p&gt;
+
+&lt;p&gt;More SaaS tools:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://readme.io/&#34;&gt;Readme.io&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.zendesk.com/guide/&#34;&gt;Zendesk Guide&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.nuclino.com/&#34;&gt;Nuclino&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;so-how-do-i-choose&#34;&gt;So, how do I choose?&lt;/h2&gt;
+
+&lt;p&gt;The above should give you an idea of where to start. Unfortunately, that&amp;rsquo;s about as far as I can take you. The rest comes down to the unique characteristics of your documentation project. I recommend you write down all your must-haves and nice-to-haves in a list, and use that list to evaluate each tool.&lt;/p&gt;
+
+&lt;p&gt;Of course, some factors are more decisive than others. Here are a few things I have found can really make or break the suitability of a tool.&lt;/p&gt;
+
+&lt;h3 id=&#34;target-audience&#34;&gt;Target audience&lt;/h3&gt;
+
+&lt;p&gt;Who is going to read your documentation? And at least as importantly: who&amp;rsquo;s going to write it? The easier you make things for both sides, the better the result. You should know when, where and how your content is going to be consumed. If you&amp;rsquo;re documenting a complicated piece of software, &lt;a href=&#34;https://en.wikipedia.org/wiki/Context-sensitive_help&#34;&gt;context-sensitive help&lt;/a&gt; might be a must-have. That&amp;rsquo;s going to eliminate some options right away. If your reviewers are always overworked, ensure they don&amp;rsquo;t need to jump through hoops to comment on your drafts.&lt;/p&gt;
+
+&lt;h3 id=&#34;print-output&#34;&gt;Print output&lt;/h3&gt;
+
+&lt;p&gt;Depending on the industry you&amp;rsquo;re in, print output can be anything from the norm to &amp;lsquo;not done&amp;rsquo;. If you do need to publish in print, there are all kinds of special considerations that require specialized tools. What&amp;rsquo;s more, you might need to publish the same documentation in both print and digital form. Since you probably don&amp;rsquo;t want to write everything twice, you&amp;rsquo;ll need a tool that can create multiple outputs from the same source. Not all tools can do this (although most help authoring tools can).&lt;/p&gt;
+
+&lt;h3 id=&#34;translation-localization&#34;&gt;Translation/localization&lt;/h3&gt;
+
+&lt;p&gt;Translation can ruin everything. Dramatic, I know, but it&amp;rsquo;s true – take it from a former professional translator. If you already know your documentation needs to be translated at some point, investigate your options in the earliest stage possible. Don&amp;rsquo;t put it on the list of bridges to cross when you get there, because you&amp;rsquo;ll regret it. Make sure you choose a tool that offers either:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;effective built-in translation features, such as easy export/import, in-context translation and workflow management, or;&lt;/li&gt;
+&lt;li&gt;a solid integration with a good &lt;a href=&#34;https://en.wikipedia.org/wiki/Computer-assisted_translation&#34;&gt;CAT Tool&lt;/a&gt;, like &lt;a href=&#34;http://www.sdltrados.com/&#34;&gt;SDL Trados&lt;/a&gt; or &lt;a href=&#34;https://www.memoq.com/en/&#34;&gt;MemoQ&lt;/a&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&#34;dita&#34;&gt;DITA&lt;/h3&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://www.xmlmind.com/tutorials/DITA/&#34;&gt;Darwin Information Typing Architecture&lt;/a&gt; (DITA) is a type of XML for technical writing. If you need to write in DITA (and the choice may not be up to you), there are only a few tools you can use. Some popular ones are &lt;a href=&#34;https://www.oxygenxml.com/&#34;&gt;Oxygen&lt;/a&gt; and &lt;a href=&#34;http://xmetal.com/&#34;&gt;XMetal&lt;/a&gt; for writing, and &lt;a href=&#34;http://ditatoo.com/&#34;&gt;DITAToo&lt;/a&gt; for source control.&lt;/p&gt;
+
+&lt;h2 id=&#34;leave-a-comment&#34;&gt;Leave a comment!&lt;/h2&gt;
+
+&lt;p&gt;Do you have a question, comment or suggestion? Please leave a comment below!&lt;/p&gt;
+
+&lt;!-- Links and references --&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

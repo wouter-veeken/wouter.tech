@@ -1,7 +1,7 @@
 +++
 date = "2017-07-20"
 title = "Embedding a Zendesk widget in your MadCap Flare top navigation output"
-description = ""
+description = "Instructions for embedding a Zendesk widget, replacing the default button, and generating Google Analytics data from submitted tickets."
 draft = "false"
 highlight = "true"
 tags = [
@@ -100,7 +100,7 @@ After you build and publish your project, the event messages will appear in Goog
 
 #### <a name="AboutTheCode"></a> About the code
 
-The code you're looking at (graciously provided by [@tealium.justin](https://writethedocs.slack.com/team/tealium.justin) from the wonderful [WriteTheDocs][wtd] community) is actually [JQuery][jquery] code, rather than pure JavaScript. Normally, you wouldn't be able to use JQuery unless you included the JQuery library in your project first. But because Flare's top navigation output relies on JQuery for its interactive elements, it's included by default. Handy!
+The code you're looking at (graciously provided by [Justin Fitzgerald](https://www.linkedin.com/in/fitzgeraldjustin/) from the wonderful [WriteTheDocs][wtd] community) is actually [JQuery][jquery] code, rather than pure JavaScript. Normally, you wouldn't be able to use JQuery unless you included the JQuery library in your project first. But because Flare's top navigation output relies on JQuery for its interactive elements, it's included by default. Handy!
 
 The code runs as soon as the page loads, but has a built-in delay of 5000 milliseconds. This gives the widget time to load. If you run the code before the widget loads, it won't work, because it'll be referring to HTML elements that don't exist yet. Feel free to adjust the delay if 5000 ms seems long to you – just change the value at the end of the code. But bear in mind that computers and connections can be slow, and it takes at least 5 seconds to fill in a ticket anyway, so...
 
