@@ -17,7 +17,7 @@ showpagemeta = "false"
       </h5>
       <h5>
         <i class="fa fa-book"></i>&nbsp;&nbsp;<strong><a href="http://help.n200.com/visitconnect" target="_blank">Visit Connect Help</a></strong>
-        - Online help for a product called <a href="http://www.n200.com/our-products/visit-connect" target="_blank">Visit Connect</a>. Written, designed and published by me using <a href="https://www.madcapsoftware.com/Flare" target="_blank">MadCap Flare</a>.
+        - Online help for a software product called Visit Connect. I worked on this from November 2016 to October 2017. In addition to rewriting and converting a legacy Word-based user guide into a fully responsive HTML5 help site (using <a href="https://www.madcapsoftware.com/Flare" target="_blank">MadCap Flare</a>), I also coordinated translations into 4 languages (see <a href="http://wouter.tech/blog/translating-flare-without-lingo/">related blog post</a>).
       </h5>
       </div>
     </div>
