@@ -6,6 +6,7 @@ img {
 
 .small-avatar {
   width: 40px;
+  margin: 0px 10px;
   height: auto;
 }
 
@@ -14,16 +15,25 @@ img {
 }
 
 .social-alt {
-  /* width: 100%; */
+  width: 100%;
 }
 
 .social-alt div {
-  float: left;
-  padding: 0 .5rem;
+  /* float: left; */
+  /* padding: 0 .5rem; */
 }
 
-.block, .block > * {
+.block {
   display: block;
+  width: 100%;
+}
+
+.left {
+  float: left;
+}
+
+.align-left {
+  text-align: left;
 }
 
 /* Main page with stikky-footer

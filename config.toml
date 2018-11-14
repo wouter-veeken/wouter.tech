@@ -5,7 +5,7 @@ title = "Wouter Veeken – Technical writer, information architect, localization
 disqusShortname = "wouter-tech"
 # Enable Google Analytics by entering your tracking code
 googleAnalytics = "UA-96197135-1"
-theme = "hugo-sustain"
+theme = "hugo-sustain-custom"
 
 [permalinks]
   post = "/:year/:month/:day/:slug"
@@ -14,12 +14,13 @@ theme = "hugo-sustain"
   avatar = "me.png"
   author = "Wouter Veeken"
   description = "Technical writer from Amsterdam, the Netherlands"
+  bio = "I'm a technical writer from Amsterdam, the Netherlands. I enjoy the books of Terry Pratchett, the music of Paul Simon, and playing the guitar."
 
   # Custom assets can be linked with their paths relative to static/
   custom_css = []
   custom_js  = []
 
-[social]
+[Social]
   Github        = "wouter-veeken"
   Email         = "me@wouter.tech"
   LinkedIn      = "wouter-veeken"
