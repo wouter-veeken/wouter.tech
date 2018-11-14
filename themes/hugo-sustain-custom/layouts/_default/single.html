@@ -4,8 +4,10 @@
 
       <!-- Header -->
       {{ partial "header" . }}
-      {{ if isset .Params "showpagemeta" }}
-        {{ .Content }}
+      {{ if (ne (strings.TrimSuffix "/projects/" .URL) .URL) }}
+        {{ .Render "projects" }}
+      {{ else if (ne (strings.TrimSuffix "/resume/" .URL) .URL) }}
+        {{ .Render "vitae" }}
       {{ else }}
       <div class="container">
         <div style="padding: 0px 15px; line-height: .8em;" class="blog-author">
@@ -45,8 +47,8 @@
         </div>
         <div class="blog-title">
           <h4>
-          <!-- {{ .Date.Format "January 2, 2006" }}
-            &nbsp;&nbsp; -->
+          {{ .Date.Format "January 2, 2006" }}
+            &nbsp;&nbsp;
             {{ range .Params.tags }}
             <span class="label label-success">{{ . }}</span>
             {{ end }}
@@ -56,42 +58,40 @@
           <div class="panel-body">
             <div class="blogpost">
               {{ .Content }}
-              <hr>
-              <!-- <div class="container"> -->
-                <div class="about-author">
-                  <h5>About the author</h5>
-                  <div style="padding: 0px 15px; line-height: .8em;" class="blog-author">
-                    <div class="left">
-                      <a href="{{ .Site.BaseURL }}">
-                        <img class="left img-circle small-avatar" src="{{ .Site.BaseURL }}img/{{ .Site.Params.avatar }}" alt="Responsive image" />
-                      </a>
-                    </div>
-                      <p class="align-left">
-                        <a href="{{ .Site.BaseURL }}">{{ .Site.Params.author }}</a> &nbsp;
-                        {{ if .Site.Social.github }}
-                        <a href="http://github.com/{{ .Site.Social.github }}"><i class="fa fa-github"></i></a> &nbsp;
-                        {{ end }}
-
-                        {{ if .Site.Social.email }}
-                        <a href="mailto:{{ .Site.Social.email }}"><i class="fa fa-envelope"></i></a> &nbsp;
-                        {{ end }}
-
-                        {{ if .Site.Social.twitter }}
-                        <a href="http://twitter.com/{{ .Site.Social.twitter }}"><i class="fa fa-twitter"></i></a> &nbsp;
-                        {{ end }}
-
-                        {{ if .Site.Social.linkedin }}
-                        <a href="http://linkedin.com/in/{{ .Site.Social.linkedin }}"><i class="fa fa-linkedin"></i></a> &nbsp;
-                        {{ end }}
-
-                        {{ if .Site.Social.stackoverflow }}
-                        <a href="http://stackoverflow.com/{{ .Site.Social.stackoverflow }}"><i class="fa fa-stack-overflow"></i></a>
-                        {{ end }}
-                      </p>
-                    <p class="align-left small" style="display: table-cell;">{{ .Site.Params.bio }}</p>
+              <hr/>
+              <div class="about-author">
+                <h5>About the author</h5>
+                <div style="padding: 0px 15px; line-height: .8em;" class="blog-author">
+                  <div class="left">
+                    <a href="{{ .Site.BaseURL }}">
+                      <img class="left img-circle small-avatar" src="{{ .Site.BaseURL }}img/{{ .Site.Params.avatar }}" alt="Responsive image" />
+                    </a>
                   </div>
+                    <p class="align-left">
+                      <a href="{{ .Site.BaseURL }}">{{ .Site.Params.author }}</a> &nbsp;
+                      {{ if .Site.Social.github }}
+                      <a href="http://github.com/{{ .Site.Social.github }}"><i class="fa fa-github"></i></a> &nbsp;
+                      {{ end }}
+
+                      {{ if .Site.Social.email }}
+                      <a href="mailto:{{ .Site.Social.email }}"><i class="fa fa-envelope"></i></a> &nbsp;
+                      {{ end }}
+
+                      {{ if .Site.Social.twitter }}
+                      <a href="http://twitter.com/{{ .Site.Social.twitter }}"><i class="fa fa-twitter"></i></a> &nbsp;
+                      {{ end }}
+
+                      {{ if .Site.Social.linkedin }}
+                      <a href="http://linkedin.com/in/{{ .Site.Social.linkedin }}"><i class="fa fa-linkedin"></i></a> &nbsp;
+                      {{ end }}
+
+                      {{ if .Site.Social.stackoverflow }}
+                      <a href="http://stackoverflow.com/{{ .Site.Social.stackoverflow }}"><i class="fa fa-stack-overflow"></i></a>
+                      {{ end }}
+                    </p>
+                  <p class="align-left small" style="display: table-cell;">{{ .Site.Params.bio }}</p>
                 </div>
-              <!-- </div> -->
+              </div>
               <hr>
               <div class="related-posts">
                 <h5>Related Posts</h5>
@@ -115,8 +115,8 @@
           <hr>
         {{ partial "disqus" . }}
         </div>
-      {{ end }}
       </div>
+      {{ end }}
     </div>
 
     <!-- Footer -->

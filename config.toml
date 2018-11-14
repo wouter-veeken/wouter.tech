@@ -27,6 +27,17 @@ theme = "hugo-sustain-custom"
   Twitter       = "wouter_tech"
 #  Stackoverflow = "username"
 
+[params.vitae]
+  website = "wouter.tech"
+  website_full = "https://wouter.tech"
+  # tel = "+44 0000 000000"
+  # tel_full = "+440000000000"
+  # google_maps = "https://www.google.co.uk/maps/place/44+Perth+St,+Edinburgh,+Edinburgh+City+EH3+5BL"
+  # address = "44 Perth Street"
+  # postcode = "EH3 5BL"
+  city = "Amsterdam"
+  country = "The Netherlands"
+
 ## Main Menu
 [[menu.main]]
   name = "blog"
@@ -38,6 +49,11 @@ theme = "hugo-sustain-custom"
   identifier = "projects"
   weight = 200
   url = "/projects/"
+[[menu.main]]
+  name = "resume"
+  identifier = "resume"
+  weight = 300
+  url = "/resume/"
 # [[menu.main]]
 #   name = "resume"
 #   identifier = "resume"

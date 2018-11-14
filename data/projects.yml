@@ -1,0 +1,19 @@
+name: Projects
+source:
+  - icon: fa fa-github
+    name: W.O.U.T.E.R.
+    description: |
+      Word Ontology, Unified Termbase and Exportable Reference: A Microsoft
+      Excel-based tool for converting a simple multilingual glossary to a TBX
+      terminology base (by way of MRC).
+    url: https://github.com/wouter-veeken/w.o.u.t.e.r.
+
+  - icon: fa fa-book
+    name: Visit Connect Help
+    description: |
+      Online help for a software product called Visit Connect. I worked on this
+      from November 2016 to October 2017. In addition to rewriting and
+      converting a legacy Word-based user guide into a fully responsive HTML5
+      help site (using MadCap Flare), I also coordinated translations into 4
+      languages (see related blog post).
+    url: http://help.n200.com/visitconnect
