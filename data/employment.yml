@@ -1,0 +1,43 @@
+name: Employment
+source:
+  - prof: Technical Writer
+    place: Booking.com
+    time: 2017 to Present
+    description: |
+      As the first API technical writer (among hundreds of developers) in
+      Booking.com's Partner Services department, I was responsible for the
+      entire API documentation process, including planning, writing, visual
+      design, and (automated) testing. I also advised other teams on
+      documentation best practices, and ran technical writing workshops for
+      non-writers.
+
+  - prof: Technical Writer
+    place: Visit by GES
+    time: 2016 to 2017
+    description: |
+      As Visit by GES's first and only technical writer, I produced, from
+      scratch, a technical documentation set and suitable information
+      architecture for the development team and beyond. As a Works Council
+      member, I helped draft statutes and oversaw office renovations.
+
+  - prof: Technical Writer
+    place: Visma Software
+    time: 2014 to 2016
+    description: |
+      As part of Visma Software's technical writing team, I wrote technical
+      (DITA XML) content for diverse target audiences (basic users, sysadmins,
+      developers) using a variety of formats and tools (OxyGen, MadCap Flare).
+      I also founded a Terminology Management Special Interest Group and laid
+      the foundations for a TM process still in place today.
+
+  - prof: Owner/translator/copywriter/editor
+    place: Veeken Vertaalt
+    time: 2012 to 2014
+    description: |
+      Ran own translation company, specializing in content related to games and
+      music.
+
+  - prof: Independent translator/musician
+    place: Self-employed
+    time: 2006 to 2012
+    description: |

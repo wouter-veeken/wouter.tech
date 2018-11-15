@@ -1,0 +1,22 @@
+name: Education
+source:
+  - title: MA Communication & Information Sciences
+    univ: VU University
+    place: Amsterdam, NL
+    date: 2012 to 2015
+    type: Specialization
+    description: Writing & translation
+
+  - title: BA Jazz & Pop Performance (incomplete)
+    univ: ArtEZ
+    place: Arnhem, NL
+    date: 2010 to 2012
+    type: Specialization
+    description: Bass guitar
+
+  - title: BA English Language & Culture
+    univ: VU University
+    place: Amsterdam, NL
+    date: 2005 to 2010
+    type: Specialization
+    description: Linguistics
