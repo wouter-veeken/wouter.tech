@@ -4,19 +4,19 @@ source:
     univ: VU University
     place: Amsterdam, NL
     date: 2012 to 2015
-    # type: thesis
-    # description: Nemore verear an eos, duo accusam placerat urbanitas at, vix libris putent voluptaria ei.
+    type: Specialization
+    description: Writing & translation
 
   - title: BA Jazz & Pop Performance (incomplete)
     univ: ArtEZ
     place: Arnhem, NL
     date: 2010 to 2012
-    # type: dissertation
-    # description: Te dicit scripta nec, nec illud decore partem et.
+    type: Specialization
+    description: Bass guitar
 
   - title: BA English Language & Culture
     univ: VU University
     place: Amsterdam, NL
     date: 2005 to 2010
-    # type: dissertation
-    # description: Te dicit scripta nec, nec illud decore partem et.
+    type: Specialization
+    description: Linguistics

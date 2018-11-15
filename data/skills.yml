@@ -1,11 +1,34 @@
-name: Programming Skills
-title: Software engineering & web development
+name: Skills
 source:
-  - name: [C/C++, Objective-C]
-    stars: 5
-
-  - name: [Java, Python, PHP, Git]
-    stars: 4
-
-  - name: [HTML/CSS3, Javascript]
-    stars: 3
+  - section: Programming
+    items:
+      - name: [HTML, CSS, JavaScript]
+        stars: 3
+      - name: [Regular expression]
+        stars: 4
+      - name: [OpenAPI/Swagger]
+        stars: 3
+      - name: [Visual Basic]
+        stars: 1
+  - section: Tools
+    items:
+      - name: [MadCap Flare]
+        stars: 4
+      - name: [JIRA, Confluence]
+        stars: 5
+      - name: [Mkdocs, Hugo]
+        stars: 3
+      - name: [Git, SubVersion]
+        stars: 3
+  - section: Languages
+    items:
+      - name: [Dutch (native)]
+        stars: 5
+      - name: [English]
+        stars: 5
+      - name: [German]
+        stars: 3
+      - name: [French]
+        stars: 2
+      - name: [Japanese]
+        stars: 1
