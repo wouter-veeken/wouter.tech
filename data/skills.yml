@@ -3,11 +3,11 @@ source:
   - section: Programming
     items:
       - name: [HTML, CSS, JavaScript]
-        stars: 3
+        stars: 2
       - name: [Regular expression]
         stars: 4
       - name: [OpenAPI/Swagger]
-        stars: 3
+        stars: 2
       - name: [Visual Basic]
         stars: 1
   - section: Tools
@@ -19,7 +19,7 @@ source:
       - name: [Mkdocs, Hugo]
         stars: 3
       - name: [Git, SubVersion]
-        stars: 3
+        stars: 2
   - section: Languages
     items:
       - name: [Dutch (native)]
