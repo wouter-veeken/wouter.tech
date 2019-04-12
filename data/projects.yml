@@ -1,6 +1,6 @@
 name: Projects
 source:
-  - icon: fa fa-github
+  - icon: fab fa-github
     name: W.O.U.T.E.R.
     description: |
       Word Ontology, Unified Termbase and Exportable Reference: A Microsoft
