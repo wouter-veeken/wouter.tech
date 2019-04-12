@@ -1,8 +1,16 @@
 name: Employment
 source:
   - prof: Technical Writer
-    place: Booking.com
-    time: 2017 to Present
+    place: LINE Corporation (Tokyo, Japan)
+    time: 2019 to now
+    description: |
+      As part of the team that builds LINE's developer documentation site, I
+      write and review English content, oversee translations, and evangelize
+      documentation tools and methods to teams across the APAC region.
+
+  - prof: Technical Writer
+    place: Booking.com (Amsterdam, The Netherlands)
+    time: 2017 to 2018
     description: |
       As the first API technical writer (among hundreds of developers) in
       Booking.com's Partner Services department, I was responsible for the
@@ -12,7 +20,7 @@ source:
       non-writers.
 
   - prof: Technical Writer
-    place: Visit by GES
+    place: Visit by GES (Haarlem, The Netherlands)
     time: 2016 to 2017
     description: |
       As Visit by GES's first and only technical writer, I produced, from
@@ -21,7 +29,7 @@ source:
       member, I helped draft statutes and oversaw office renovations.
 
   - prof: Technical Writer
-    place: Visma Software
+    place: Visma Software (Amsterdam, The Netherlands)
     time: 2014 to 2016
     description: |
       As part of Visma Software's technical writing team, I wrote technical
@@ -31,13 +39,13 @@ source:
       the foundations for a TM process still in place today.
 
   - prof: Owner/translator/copywriter/editor
-    place: Veeken Vertaalt
+    place: Veeken Vertaalt (Amsterdam, The Netherlands)
     time: 2012 to 2014
     description: |
       Ran own translation company, specializing in content related to games and
       music.
 
   - prof: Independent translator/musician
-    place: Self-employed
+    place: Self-employed (everywhere)
     time: 2006 to 2012
     description: |
