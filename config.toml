@@ -11,7 +11,7 @@ theme = "hugo-sustain-custom"
   post = "/:year/:month/:day/:slug"
 
 [params]
-  avatar = "me.png"
+  avatar = "20181231_135909.jpg"
   author = "Wouter Veeken"
   description = "Technical writer in Tokyo, Japan"
   bio = "I'm a technical writer in Tokyo, originally from Amsterdam. I enjoy the books of Terry Pratchett, the music of Paul Simon, and playing the guitar."
@@ -25,12 +25,13 @@ theme = "hugo-sustain-custom"
   Email         = "me@wouter.tech"
   LinkedIn      = "wouter-veeken"
   Twitter       = "wouter_tech"
+  LINE          = "veeken.wouter"
 #  Stackoverflow = "username"
 
 [params.vitae]
   website = "wouter.tech"
   website_full = "https://wouter.tech"
-  # tel = "+44 0000 000000"
+  # tel = "+81 0000 000000"
   # tel_full = "+440000000000"
   # google_maps = "https://www.google.co.uk/maps/place/44+Perth+St,+Edinburgh,+Edinburgh+City+EH3+5BL"
   # address = "44 Perth Street"
