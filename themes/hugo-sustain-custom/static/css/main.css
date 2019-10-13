@@ -36,6 +36,25 @@ img {
   text-align: left;
 }
 
+blockquote {
+  color: dimgrey;
+  margin: 1em;
+}
+
+.smallpic {
+  width: 80px;
+  float: right;
+  margin: 0em 1em 1em 1em;
+  border: 1px solid;
+  display: block;
+}
+
+td {
+  padding: 1em;
+  margin: 1em;
+  border: 1px solid;
+}
+
 /* Main page with stikky-footer
 -------------------------------------------------- */
 html,
