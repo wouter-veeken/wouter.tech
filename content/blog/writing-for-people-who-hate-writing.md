@@ -113,6 +113,10 @@ Look for these things:
 
 For some quick feedback, copy/paste your text here: http://www.hemingwayapp.com/
 
+## Tell me what you think
+
+I'd love to hear if you found this helpful. Have a question or comment? Leave it below!
+
 <!-- Links and references -->
 [img-thomas-mann]: /img/thomas-mann.jpg
 [img-ernest-hemingway]: /img/ernest-hemingway.jpg
