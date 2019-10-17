@@ -1,6 +1,6 @@
 +++
 date = "2019-10-13"
-title = "Writing documentation for people who hate writing: a very short guide"
+title = "Writing software documentation for people who hate writing: a very short guide"
 description = ""
 draft = "false"
 highlight = "false"
@@ -20,7 +20,7 @@ categories = [
   > A writer is someone for whom writing is more difficult than it is for other people.  
 > — Thomas Mann, Essays of Three Decades
 
-Do you find writing documentation painful? You're not alone. But writing is a necessary part of any job. Ideas need words to travel; you can't collaborate without writing.
+Do you find writing software documentation painful? You're not alone. But writing is a necessary part of any job. Ideas need words to travel; you can't collaborate without writing.
 
 For many developers, the pain of writing comes from not knowing where to start. Or where to stop. Or how to do the bits in between.
 
