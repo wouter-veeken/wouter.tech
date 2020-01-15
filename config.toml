@@ -24,7 +24,7 @@ theme = "hugo-sustain-custom"
   Github        = "wouter-veeken"
   Email         = "me@wouter.tech"
   LinkedIn      = "wouter-veeken"
-  Twitter       = "wouter_tech"
+  # Twitter       = ""
   LINE          = "veeken.wouter"
 #  Stackoverflow = "username"
 
