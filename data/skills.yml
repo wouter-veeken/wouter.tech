@@ -3,12 +3,12 @@ source:
   - section: Programming
     items:
       - name: [HTML, CSS, JavaScript]
-        stars: 2
-      - name: [Regular expression]
         stars: 4
       - name: [OpenAPI/Swagger]
-        stars: 2
-      - name: [Visual Basic]
+        stars: 4
+      - name: [Regular expression]
+        stars: 4
+      - name: [Visual Basic, Python]
         stars: 1
   - section: Tools
     items:
@@ -16,9 +16,9 @@ source:
         stars: 4
       - name: [JIRA, Confluence]
         stars: 5
-      - name: [Mkdocs, Hugo]
+      - name: [Mkdocs, VuePress, other SSG]
         stars: 3
-      - name: [Git, SubVersion]
+      - name: [Git, SubVersion, other VCS]
         stars: 2
   - section: Languages
     items:
@@ -26,9 +26,11 @@ source:
         stars: 5
       - name: [English]
         stars: 5
+      - name: [Markdown, ReStructured Text, ASCIIdoc]
+        stars: 5
       - name: [German]
-        stars: 3
-      - name: [French]
         stars: 2
+      - name: [French]
+        stars: 1
       - name: [Japanese]
         stars: 1

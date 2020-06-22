@@ -1,6 +1,6 @@
 baseurl = "https://wouter.tech/"
 languageCode = "en-US"
-title = "Wouter Veeken – Technical Writer in Tokyo, Japan"
+title = "Wouter Veeken – Technical Writer in Amsterdam, the Netherlands"
 # Enable comments by entering your Disqus shortname
 disqusShortname = "wouter-tech"
 # Enable Google Analytics by entering your tracking code
@@ -13,8 +13,8 @@ theme = "hugo-sustain-custom"
 [params]
   avatar = "20181231_135909.jpg"
   author = "Wouter Veeken"
-  description = "Technical writer in Tokyo, Japan"
-  bio = "I'm a technical writer in Tokyo, originally from Amsterdam. I enjoy the books of Terry Pratchett, the music of Paul Simon, and playing the guitar."
+  description = "Technical writer in Amsterdam, the Netherlands"
+  bio = "I'm a technical writer from Amsterdam, the Netherlands. I enjoy the books of Terry Pratchett, the music of Paul Simon, and playing the guitar."
 
   # Custom assets can be linked with their paths relative to static/
   custom_css = []
@@ -36,8 +36,8 @@ theme = "hugo-sustain-custom"
   # google_maps = "https://www.google.co.uk/maps/place/44+Perth+St,+Edinburgh,+Edinburgh+City+EH3+5BL"
   # address = "44 Perth Street"
   # postcode = "EH3 5BL"
-  city = "Tokyo"
-  country = "Japan"
+  city = "Amsterdam"
+  country = "The Netherlands"
 
 ## Main Menu
 [[menu.main]]

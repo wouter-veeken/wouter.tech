@@ -9,7 +9,7 @@
         <time>{{ .time }}</time>
       </span>
     </header>
-    <p>{{ .description }}</p>
+    <p>{{ .description | markdownify }} </p>
   </article>
   {{ end }}
 </section>

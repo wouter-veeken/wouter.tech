@@ -1,27 +1,37 @@
 name: Employment
 source:
   - prof: Technical Writer
-    place: LINE Corporation (Tokyo, Japan)
-    time: 2019 to now
-    description: |
-      As part of the team that builds LINE's developer documentation site, I
-      write and review English content, oversee translations, and evangelize
-      documentation tools and methods to teams across the APAC region.
-
-  - prof: Technical Writer
     place: Booking.com (Amsterdam, The Netherlands)
-    time: 2017 to 2018
+    time: 2017–2018 | 2020–NOW
     description: |
-      As the first API technical writer (among hundreds of developers) in
+      **2017–2018**: As the first API technical writer in
       Booking.com's Partner Services department, I was responsible for the
       entire API documentation process, including planning, writing, visual
       design, and (automated) testing. I also advised other teams on
       documentation best practices, and ran technical writing workshops for
       non-writers.
 
+      **2020**: After a little more than a year in Tokyo, I rejoined Booking.com
+      to pioneer the documentation process, tooling, and information architecture
+      for their payments platform.
+
+  - prof: Technical Writer
+    place: LINE Corporation (Tokyo, Japan)
+    time: 2019–2020
+    description: |
+      I moved from Amsterdam to Tokyo to join LINE's developer documentation
+      team, where I wrote and reviewed English content, oversaw translations,
+      and evangelized documentation tools and methods to teams across the APAC
+      region.
+
+  # - prof: Technical Writer
+  #   place: Booking.com (Amsterdam, The Netherlands)
+  #   time: 2017–2018
+  #   description: |
+
   - prof: Technical Writer
     place: Visit by GES (Haarlem, The Netherlands)
-    time: 2016 to 2017
+    time: 2016–2017
     description: |
       As Visit by GES's first and only technical writer, I produced, from
       scratch, a technical documentation set and suitable information
@@ -30,7 +40,7 @@ source:
 
   - prof: Technical Writer
     place: Visma Software (Amsterdam, The Netherlands)
-    time: 2014 to 2016
+    time: 2014–2016
     description: |
       As part of Visma Software's technical writing team, I wrote technical
       (DITA XML) content for diverse target audiences (basic users, sysadmins,
@@ -40,12 +50,12 @@ source:
 
   - prof: Owner/translator/copywriter/editor
     place: Veeken Vertaalt (Amsterdam, The Netherlands)
-    time: 2012 to 2014
+    time: 2012–2014
     description: |
       Ran own translation company, specializing in content related to games and
       music.
 
-  - prof: Independent translator/musician
+  - prof: Independent translator & musician
     place: Self-employed (everywhere)
-    time: 2006 to 2012
+    time: 2006–2012
     description: |
