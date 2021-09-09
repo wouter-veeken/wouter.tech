@@ -13,8 +13,8 @@ theme = "hugo-sustain-custom"
 [params]
   avatar = "20181231_135909.jpg"
   author = "Wouter Veeken"
-  description = "Technical writer in Amsterdam, the Netherlands"
-  bio = "I'm a technical writer from Amsterdam, the Netherlands. I enjoy the books of Terry Pratchett, the music of Paul Simon, and playing the guitar."
+  description = "Technical writer in the Netherlands"
+  bio = "I'm a technical writer from Boxtel in the Netherlands. I enjoy the books of Terry Pratchett, the music of Paul Simon, and playing the guitar."
 
   # Custom assets can be linked with their paths relative to static/
   custom_css = []
@@ -36,7 +36,7 @@ theme = "hugo-sustain-custom"
   # google_maps = "https://www.google.co.uk/maps/place/44+Perth+St,+Edinburgh,+Edinburgh+City+EH3+5BL"
   # address = "44 Perth Street"
   # postcode = "EH3 5BL"
-  city = "Amsterdam"
+  city = "Boxtel"
   country = "The Netherlands"
 
 ## Main Menu
