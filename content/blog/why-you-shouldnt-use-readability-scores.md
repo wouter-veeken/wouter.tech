@@ -14,8 +14,6 @@ categories = [
 ]
 +++
 
-# Why you shouldn't use readability scores for technical documentation (and what to use instead)
-
 Readability scores promise a simple, unambiguous metric for how easy a given piece of text is to read. There are many different readability scoring systems, but the ones I know to be in common use are:
 
 - [Flesch-Kincaid Grade Level]
