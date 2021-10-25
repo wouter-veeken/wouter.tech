@@ -15,21 +15,3 @@ source:
       [TBX](http://www.terminorgs.net/TBX-Basic.html) terminology base (by way 
       of [MRC](https://www.tbxinfo.net/tbx-tools-v2/mrc-file-primer/)).
     url: https://github.com/wouter-veeken/w.o.u.t.e.r.
-
-  - icon: fa fa-book
-    name: Visit Account Help
-    description: |
-      Online help for Visit Account, a sibling product of Visit Connect (see 
-      project below). I used MadCap Flare to write the documentation from 
-      scratch and create a fully responsive layout.
-    url: http://help.n200.com/account
-
-  - icon: fa fa-book
-    name: Visit Connect Help
-    description: |
-      Online help for a software product called Visit Connect. I worked on this
-      from November 2016 to October 2017. I rewrote and converted a legacy 
-      Microsoft Word-based user guide into a fully responsive HTML5
-      help site using [MadCap Flare](https://www.madcapsoftware.com/products/flare/). 
-      I also [coordinated translations into 4 languages](/blog/translating-flare-without-lingo/).
-    url: http://help.n200.com/visitconnect
