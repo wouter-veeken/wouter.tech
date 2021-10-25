@@ -28,9 +28,9 @@ Attempting to use any of the abovementioned scores as a measure of clarity for y
 
 ## Alternative quality metrics for docs
 
-I'm no mathematician, so I wouldn't how to devise a better readability formula. But I do suspect that one or more of the following metrics could feature as components in the equation:
+I'm no mathematician, so I wouldn't know how to devise a better readability formula. But I do suspect that one or more of the following metrics could feature as components in the equation:
 
-- **Average number of sentences per paragraph.** A long text full of complex ideas is easier to read when split it into brief paragraphs. 3-4 sentences to a paragraph, including 1 topic sentence and 2-3 supporting sentences, is usually best. ("Ratio of topic sentences versus supporting sentences" could be a useful secondary metric.)
+- **Average number of sentences per paragraph.** A long text full of complex ideas is easier to read when split into brief paragraphs. 3-4 sentences to a paragraph, including 1 topic sentence and 2-3 supporting sentences, is usually best. ("Ratio of topic sentences versus supporting sentences" could be a useful secondary metric.)
 
 - **Ratio of headings vs. paragraphs.** Readers are impatient and like to skim. Rather than reading a page top to bottom, they'll often jump straight to the part that's most relevant to them. Using plenty of (meaningful) headings helps them determine at a glance where that part is. For online documentation, 1 heading per 2-4 paragraphs is probably a good target ratio.
 
