@@ -38,7 +38,7 @@ I'm no mathematician, so I wouldn't know how to devise a better readability form
 
 - **Ratio of passive vs. active constructions.** Passive voice is harder to process than active voice. You can't always avoid passive voice (nor should you), but I would try to keep the ratio of passive to active constructions to no more than 1:6.
 
-- **Ratio of adverbs vs. verbs; adjectives vs. nouns.** Clear documentation is light on adverbs and adjectives. The information conveyed by these words is often not relevant, but when it is, they can signal that you're packing too much information into a single sentence. I'd aim for a ratio of no more than 1:5 for both adjectives:nouns and adverbs:verbs.
+- **Ratio of adverbs vs. verbs; adjectives vs. nouns.** Clear documentation is light on adverbs and adjectives. The information conveyed by these words is often not relevant, and when it is, they can signal that you're packing too much information into the sentence. I'd aim for a ratio of no more than 1:5 for both adjectives:nouns and adverbs:verbs.
 
 - **Ratio of code vs. prose.** The core of good developer documentation is good sample code. Readers will forgive a surprising amount of bad writing if it's surrounding blocks of clear, usable code. I'd say a good code:prose ratio is at least 50:50, but that is basically a guess and will not be true for every type of doc.
 
